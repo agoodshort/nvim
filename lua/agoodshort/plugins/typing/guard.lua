@@ -20,6 +20,9 @@ return {
 		-- sh
 		ft("sh,zsh"):fmt("shfmt")
 
+        -- TOML
+        ft("toml"):fmt("taplo")
+
 		-- use lsp to format first then use golines to format
 		-- ft('go'):fmt('lsp')
 		--     :append('golines')
