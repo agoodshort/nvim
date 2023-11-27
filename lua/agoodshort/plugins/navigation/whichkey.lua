@@ -238,10 +238,10 @@ return {
 				"\"zy<Cmd>exec 'Telescope live_grep custom_hidden=true default_text=' . escape(@z, ' ')<cr>",
 				"Live Grep Current Selection (inc. hidden, exc. .git)",
 			},
-            fll = {
-                "\"zy<Cmd>exec 'Telescope live_grep_args default_text=' . escape(@z, ' ')<cr>",
-                "Live Grep Args Current Selection",
-            }
+			fll = {
+				"\"zy<Cmd>exec 'Telescope live_grep_args default_text=' . escape(@z, ' ')<cr>",
+				"Live Grep Args Current Selection",
+			},
 		}, leader_opts_visual)
 
 		wk.register({ ["<C-p>"] = { "<Cmd>Telescope keymaps<CR>", "List Keymaps" } }, blank_opts)
@@ -352,9 +352,12 @@ return {
 			K = { "<Cmd>Lspsaga hover_doc<CR>", "Lspsaga Hover Doc" },
 		}, blank_opts)
 
-		-- Guard.nvim
+		-- Conform.nvim
 		wk.register({
-			["="] = { "<Cmd>GuardFmt<CR>", "Format Using guard.nvim" },
+			["="] = {
+				"<Cmd>lua require('conform').format({ async = true, lsp_fallback = true })<CR>",
+				"Format Using conform.nvim",
+			},
 		}, leader_opts)
 
 		-- Undotree
@@ -388,16 +391,6 @@ return {
 				r = { "<Cmd>CellularAutomaton make_it_rain<CR>", "Make It Rain" },
 			},
 		}, leader2_opts)
-
-		-- Kiwi
-		wk.register({
-			w = {
-				name = "Kiwi",
-				w = { "<Cmd>lua require('kiwi').open_wiki_index()<CR>", "Open Wiki Index" },
-				d = { "<Cmd>lua require('kiwi').open_diary_index()<CR>", "Open Diary Index" },
-				n = { "<Cmd>lua require('kiwi').open_diary_new()<CR>", "Open Diary New" },
-			},
-		}, leader_opts)
 
 		wk.setup()
 	end,

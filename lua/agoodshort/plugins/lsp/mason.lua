@@ -10,7 +10,7 @@ return {
 		"folke/neodev.nvim",
 		"kevinhwang91/nvim-ufo",
 		"b0o/schemastore.nvim",
-		"nvimdev/guard.nvim",
+		"stevearc/conform.nvim",
 	},
 	config = function()
 		require("mason").setup()
@@ -20,7 +20,6 @@ return {
 				"jsonls",
 				"lua_ls",
 				"tsserver",
-				"powershell_es",
 				"yamlls",
 				"marksman",
 			},
