@@ -33,6 +33,9 @@ vim.opt.termguicolors = true
 -- Vim updates faster
 vim.opt.updatetime = 250
 
+-- Automatically change the current directory
+vim.cmd([[autocmd BufEnter * silent! execute 'lcd' getcwd(-1)]])
+
 -- Spelling
 vim.opt.spelllang = "en_gb"
 vim.opt.spell = true
