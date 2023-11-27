@@ -1,5 +1,6 @@
 return {
 	"chrisgrieser/nvim-recorder",
+    keys = { "q", "<C-q>", "Q" },
 	opts = {
 		-- Named registers where macros are saved. The first register is the default
 		-- register/macro-slot used after startup.
