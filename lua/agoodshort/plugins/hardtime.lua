@@ -56,7 +56,7 @@ return {
 			"qf",
 			"netrw",
 			"neo-tree",
-            "neo-tree-popup",
+			"neo-tree-popup",
 			"lazy",
 			"mason",
 			"help",
@@ -64,6 +64,7 @@ return {
 			"toggleterm",
 			"undotree",
 			"diff",
+			"sagarename",
 		},
 	},
 }
