@@ -3,6 +3,7 @@ return {
 	dependencies = {
 		"kkharji/sqlite.lua", -- Ensure you have sqlite3 installed locally
 	},
+	event = "BufReadPost",
 	config = function()
 		if jit.os == "Windows" then
 			vim.g.sqlite_clib_path = vim.fn.expand("$HOME") .. "/scoop/apps/sqlite3dll/current/sqlite3.dll"

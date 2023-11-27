@@ -1,5 +1,6 @@
 return {
 	"kwkarlwang/bufresize.nvim",
+    event = "VeryLazy",
 	config = function()
 		local opts = { noremap = true, silent = true }
 		require("bufresize").setup({
