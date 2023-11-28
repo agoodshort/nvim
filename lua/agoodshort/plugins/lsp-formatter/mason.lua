@@ -13,7 +13,11 @@ return {
 		"stevearc/conform.nvim",
 	},
 	config = function()
-		require("mason").setup()
+		require("mason").setup({
+            ui = {
+                border = "rounded",
+            }
+        })
 
 		local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
 

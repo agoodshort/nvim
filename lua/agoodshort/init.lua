@@ -22,15 +22,26 @@ end
 local lazy_defaults = {
 	defaults = {
 		lazy = false,
-		git = {
-			url_format = "git@agoodshort.github.com/%s.git",
-		},
+	},
+	-- git = {
+	-- 	url_format = "git@agoodshort.github.com/%s.git",
+	-- },
+	checker = {
+		-- automatically check for plugin updates
+		enabled = true,
+		concurrency = nil, ---@type number? set to 1 to check for updates very slowly
+		notify = true, -- get a notification when new updates are found
+		frequency = 3600, -- check for updates every hour
+		check_pinned = false, -- check for pinned packages that can't be updated
+	},
+	ui = {
+		border = "rounded",
 	},
 }
 
 lazy.setup({
 	{ import = "agoodshort.plugins" },
-    { import = "agoodshort.plugins.git" },
+	{ import = "agoodshort.plugins.git" },
 	{ import = "agoodshort.plugins.lsp-formatter" },
 	{ import = "agoodshort.plugins.navigation" },
 	{ import = "agoodshort.plugins.terminal" },

@@ -216,7 +216,27 @@ return {
 		}
 
 		-- --------------------------------------------------
-		-- Align
+		-- Lazy
+		-- --------------------------------------------------
+		local Lazy = {
+			condition = require("lazy.status").has_updates,
+			update = { "User", pattern = "LazyUpdate" },
+			utils.surround({ "", "" }, "lightblue", {
+				provider = function()
+					return require("lazy.status").updates() .. " "
+				end,
+				on_click = {
+					callback = function()
+						vim.cmd("Lazy")
+					end,
+					name = "update_plugins",
+				},
+				hl = { fg = "black" },
+			}),
+		}
+
+		-- --------------------------------------------------
+		-- Recorder
 		-- --------------------------------------------------
 		local Recorder = {
 			condition = function()
@@ -247,9 +267,12 @@ return {
 				ViMode,
 				Space,
 				WorkDir,
-				Align,
-				Align,
+				Space,
 				Git,
+				Align,
+				Align,
+				Lazy,
+				Align,
 				Align,
 				Align,
 				Recorder,
@@ -257,6 +280,7 @@ return {
 				LSPActive,
 				Space,
 				Codeium,
+				Space,
 			},
 			opts = {
 				colors = colors,
