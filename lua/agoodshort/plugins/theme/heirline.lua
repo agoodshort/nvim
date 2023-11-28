@@ -145,7 +145,14 @@ return {
 		-- --------------------------------------------------
 
 		local Git = {
-			condition = conditions.is_git_repo, -- to review
+			condition = function()
+				local path = vim.loop.cwd() .. "/.git"
+				local ok = vim.loop.fs_stat(path)
+				if not ok then
+					return false
+				end
+				return true
+			end,
 			on_click = {
 				callback = function()
 					vim.defer_fn(function()
