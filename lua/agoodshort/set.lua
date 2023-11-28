@@ -33,6 +33,9 @@ vim.opt.termguicolors = true
 -- Vim updates faster
 vim.opt.updatetime = 250
 
+-- Neovim node host
+vim.g.node_host_prog = "$XDG_DATA_HOME/my-npm-tools/node_modules/.bin/neovim-node-host"
+
 -- Automatically change the current directory
 vim.cmd([[autocmd BufEnter * silent! execute 'lcd' getcwd(-1)]])
 
@@ -41,7 +44,7 @@ vim.opt.spelllang = "en_gb"
 vim.opt.spell = true
 vim.cmd([[autocmd TermOpen * setlocal nospell]])
 
--- Make sure .env.* files get syntax hightlight
+-- Make sure .env.* files get syntax highlight
 vim.cmd([[autocmd BufNewFile,BufReadPost .env.* set ft=sh]])
 vim.cmd([[autocmd BufNewFile,BufReadPost Brewfile* set ft=sh]])
 vim.cmd([[autocmd BufNewFile,BufReadPost *.conf set ft=sh]])
