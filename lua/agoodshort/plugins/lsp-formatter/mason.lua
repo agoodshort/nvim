@@ -1,10 +1,10 @@
--- ensure_installed = { "stylua", "prettier", "beautysh", "black", "cfn_lint" },
 return {
 	"williamboman/mason.nvim",
 	event = { "BufReadPre", "BufNewFile" },
 	build = ":MasonUpdate",
 	dependencies = {
 		"williamboman/mason-lspconfig.nvim",
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		"neovim/nvim-lspconfig",
 		"hrsh7th/cmp-nvim-lsp",
 		"folke/neodev.nvim",
@@ -14,16 +14,6 @@ return {
 	},
 	config = function()
 		require("mason").setup()
-
-		require("mason-lspconfig").setup({
-			ensure_installed = {
-				"jsonls",
-				"lua_ls",
-				"tsserver",
-				"yamlls",
-				"marksman",
-			},
-		})
 
 		local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
 

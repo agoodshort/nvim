@@ -30,10 +30,10 @@ local lazy_defaults = {
 
 lazy.setup({
 	{ import = "agoodshort.plugins" },
-	{ import = "agoodshort.plugins.lsp" },
+    { import = "agoodshort.plugins.git" },
+	{ import = "agoodshort.plugins.lsp-formatter" },
 	{ import = "agoodshort.plugins.navigation" },
 	{ import = "agoodshort.plugins.terminal" },
 	{ import = "agoodshort.plugins.theme" },
 	{ import = "agoodshort.plugins.typing" },
-	{ import = "agoodshort.plugins.git" },
 }, lazy_defaults)
