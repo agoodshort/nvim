@@ -52,6 +52,7 @@ return {
 
 			cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
+			---@diagnostic disable-next-line: missing-fields
 			cmp.setup({
 				snippet = {
 					expand = function(args)
@@ -89,6 +90,7 @@ return {
 						end
 					end, { "i", "s" }),
 				},
+				---@diagnostic disable-next-line: missing-fields
 				formatting = {
 					format = lspkind.cmp_format({
 						mode = "symbol_text",
