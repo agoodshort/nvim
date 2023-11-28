@@ -3,6 +3,7 @@ return {
 	priority = 1000,
 	config = function()
 		require("kanagawa").setup({
+			compile = false, -- enable compiling the colorscheme
 			undercurl = true, -- enable undercurls
 			commentStyle = { italic = true },
 			functionStyle = {},
@@ -12,16 +13,12 @@ return {
 			variablebuiltinStyle = { italic = true },
 			specialReturn = true, -- special highlight for the return keyword
 			specialException = true, -- special highlight for exception handling keywords
-			transparent = false, -- do not set background color
+			transparent = false, -- sets background color
 			dimInactive = true, -- dim inactive window `:h hl-NormalNC`
-			globalStatus = false, -- adjust window separators highlight for laststatus=3
 			terminalColors = true, -- define vim.g.terminal_color_{0,17}
 			colors = {
 				palette = {},
 				theme = {
-					wave = {},
-					lotus = {},
-					dragon = {},
 					all = {
 						ui = {
 							bg_gutter = "none", --removes the background LineNr
