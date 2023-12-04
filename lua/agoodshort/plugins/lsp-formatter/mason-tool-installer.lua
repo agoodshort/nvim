@@ -16,7 +16,6 @@ return {
 			"bash-language-server",
 
 			-- Formatters
-			"prettier",
 			"stylua",
 			"shfmt",
 			"markdownlint",
