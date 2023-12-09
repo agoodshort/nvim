@@ -32,7 +32,7 @@ return {
 				end
 
 				return require("ufo")
-					.getFolds("lsp", bufnr)
+					.getFolds(bufnr, "lsp")
 					:catch(function(err)
 						return handleFallbackException(err, "treesitter")
 					end)
@@ -42,7 +42,7 @@ return {
 			end
 
 			require("ufo").setup({
-				provider_selector = function(bufnr, filetype, buftype)
+				provider_selector = function(_, filetype, _)
 					return ftMap[filetype] or customizeSelector
 				end,
 			})

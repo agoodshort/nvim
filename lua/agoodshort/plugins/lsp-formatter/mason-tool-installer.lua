@@ -25,6 +25,9 @@ return {
 			"xmlformatter",
 			"yamlfmt",
 			"taplo",
+
+			-- Linters
+			"eslint_d",
 		},
 	},
 }

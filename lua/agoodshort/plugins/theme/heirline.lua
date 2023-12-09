@@ -119,7 +119,7 @@ return {
 
 		local LSPActive = {
 			condition = conditions.lsp_attached,
-			update = { "LspAttach", "LspDetach" },
+			update = { "LspAttach", "LspDetach", "BufEnter", "WinEnter", "BufWritePost" },
 			on_click = {
 				callback = function()
 					vim.defer_fn(function()
@@ -134,7 +134,15 @@ return {
 					for _, server in pairs(vim.lsp.get_active_clients({ bufnr = 0 })) do
 						table.insert(names, server.name)
 					end
-					return " [" .. table.concat(names, " ") .. "]"
+					if require("lazy.core.config").plugins["nvim-lint"]._.loaded then
+						local linters = require("lint").get_running()
+						if #linters ~= 0 then
+							for _, linter in pairs(linters) do
+								table.insert(names, linter)
+							end
+						end
+					end
+					return " [" .. table.concat(names, ", ") .. "]"
 				end,
 				hl = { fg = "white" },
 			}),

@@ -79,7 +79,6 @@ return {
 
 		-- Toggle
 		wk.register({
-			["+"] = { "<Cmd>lua vim.lsp.buf.format()<CR>", "Format Using LSP Only" },
 			["/"] = { "<Cmd>:noh<CR>", "Clear Search Highlight" },
 			N = {
 				function()
@@ -365,6 +364,11 @@ return {
 				"<Cmd>lua require('conform').format({ async = true, lsp_fallback = true })<CR>",
 				"Format Using conform.nvim",
 			},
+		}, leader_opts)
+
+		-- nvim-lint
+		wk.register({
+			["+"] = { "<Cmd>lua require('lint').try_lint()<CR>", "Run linter" },
 		}, leader_opts)
 
 		-- Undotree
