@@ -26,6 +26,5 @@ NVIM_APPNAME=agoodshort/nvim/ nvim
 - [ ] Review the use of `./luarc.json` file
 - [ ] Review how to use `K` when on neovim man page
 - [ ] Neovim `initial_mode = "normal"` does not work for extensions git_diffs
-- [ ] Store icons in definition file => <https://github.com/b0o/incline.nvim/discussions/31#discussioncomment-3977708>
 - [ ] How to use markdown-toc with marksman
 - [ ] uncomment git config in lazy.nvim

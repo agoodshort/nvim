@@ -8,6 +8,7 @@ return {
 		{ "s1n7ax/nvim-window-picker", version = "v1.*" }, -- only needed if you want to use the commands with "_with_window_picker" suffix
 	},
 	config = function()
+		local icons = require("agoodshort.icons")
 		require("window-picker").setup({
 			autoselect_one = true,
 			include_current = false,
@@ -28,10 +29,10 @@ return {
 		vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
 
 		-- If you want icons for diagnostic errors, you'll need to define them somewhere:
-		vim.fn.sign_define("DiagnosticSignError", { text = " ", texthl = "DiagnosticSignError" })
-		vim.fn.sign_define("DiagnosticSignWarn", { text = " ", texthl = "DiagnosticSignWarn" })
-		vim.fn.sign_define("DiagnosticSignInfo", { text = " ", texthl = "DiagnosticSignInfo" })
-		vim.fn.sign_define("DiagnosticSignHint", { text = "", texthl = "DiagnosticSignHint" })
+		vim.fn.sign_define("DiagnosticSignError", { text = icons.diagnostic.error, texthl = "DiagnosticSignError" })
+		vim.fn.sign_define("DiagnosticSignWarn", { text = icons.diagnostic.warn, texthl = "DiagnosticSignWarn" })
+		vim.fn.sign_define("DiagnosticSignInfo", { text = icons.diagnostic.info, texthl = "DiagnosticSignInfo" })
+		vim.fn.sign_define("DiagnosticSignHint", { text = icons.diagnostic.hint, texthl = "DiagnosticSignHint" })
 		-- NOTE: this is changed from v1.x, which used the old style of highlight groups
 		-- in the form "LspDiagnosticsSignWarning"
 
@@ -54,13 +55,13 @@ return {
 				sources = { -- table
 					{
 						source = "filesystem", -- string
-						display_name = "  Files ", -- string | nil
+						display_name = " " .. icons.misc.folder .. " Files ", -- string | nil
 					},
 					{
 						source = "buffers",
-						display_name = "  Buffers ",
+						display_name = " 󰈚  Buffers ",
 					},
-					{ source = "document_symbols", display_name = "  Symbols " },
+					{ source = "document_symbols", display_name = "   Symbols " },
 				},
 			},
 			default_component_configs = {
@@ -91,28 +92,13 @@ return {
 					highlight = "NeoTreeFileIcon",
 				},
 				modified = {
-					symbol = "[+]",
+					symbol = icons.file.modified,
 					highlight = "NeoTreeModified",
 				},
 				name = {
 					trailing_slash = false,
 					use_git_status_colors = true,
 					highlight = "NeoTreeFileName",
-				},
-				git_status = {
-					symbols = {
-						-- Change type
-						added = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
-						modified = "", -- or "", but this is redundant info if you use git_status_colors on the name
-						deleted = "✖", -- this can only be used in the git_status source
-						renamed = "", -- this can only be used in the git_status source
-						-- Status type
-						untracked = "",
-						ignored = "",
-						unstaged = "",
-						staged = "",
-						conflict = "",
-					},
 				},
 			},
 			window = {
