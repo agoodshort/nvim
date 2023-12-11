@@ -26,6 +26,11 @@ return {
 		end
 
 		require("conform").setup(options)
+
+		-- Optional config per formatter
+		require("conform").formatters.yamlfmt = {
+			prepend_args = { "-formatter", "retain_line_breaks=true" },
+		}
 	end,
 	init = function()
 		-- If you want the formatexpr, here is the place to set it
