@@ -6,6 +6,7 @@ return {
 	},
 	event = "VeryLazy",
 	config = function()
+		local icons = require("agoodshort.icons")
 		local colors = require("kanagawa.colors").setup()
 		local conditions = require("heirline.conditions")
 		local utils = require("heirline.utils")
@@ -20,13 +21,12 @@ return {
 
 			utils.surround({ "", "" }, utils.get_highlight("Directory").fg, {
 				provider = function()
-					-- local icon = (vim.fn.haslocaldir(0) == 1 and "l" or "g") .. " " .. " "
-					local icon = " "
+					local icon = icons.misc.folder
 					local cwd = vim.fn.fnamemodify(vim.fn.getcwd(), ":~")
 					if not conditions.width_percent_below(#cwd, 0.25) then
 						cwd = vim.fn.pathshorten(cwd)
 					end
-					return icon .. cwd
+					return icon .. " " .. cwd
 				end,
 				hl = { fg = "black" },
 			}),
@@ -100,7 +100,7 @@ return {
 				return self:mode_color()
 			end, {
 				provider = function(self)
-					return " %2(" .. self.mode_names[self.mode] .. "%)"
+					return "  %2(" .. self.mode_names[self.mode] .. "%)"
 				end,
 				hl = { fg = "black", bold = true },
 				update = {
@@ -119,7 +119,7 @@ return {
 
 		local LSPActive = {
 			condition = conditions.lsp_attached,
-			update = { "LspAttach", "LspDetach" },
+			update = { "LspAttach", "LspDetach", "BufEnter", "WinEnter", "BufWritePost" },
 			on_click = {
 				callback = function()
 					vim.defer_fn(function()
@@ -134,7 +134,15 @@ return {
 					for _, server in pairs(vim.lsp.get_active_clients({ bufnr = 0 })) do
 						table.insert(names, server.name)
 					end
-					return " [" .. table.concat(names, " ") .. "]"
+					if require("lazy.core.config").plugins["nvim-lint"]._.loaded then
+						local linters = require("lint").get_running()
+						if #linters ~= 0 then
+							for _, linter in pairs(linters) do
+								table.insert(names, linter)
+							end
+						end
+					end
+					return " [" .. table.concat(names, ", ") .. "]"
 				end,
 				hl = { fg = "white" },
 			}),
@@ -196,7 +204,11 @@ return {
 
 			utils.surround({ "", "" }, "orange", {
 				provider = function(self)
-					return " " .. self.current_dir_head:gsub("%\n", "") .. " " .. self.git_status_current
+					return icons.git.branch
+						.. " "
+						.. self.current_dir_head:gsub("%\n", "")
+						.. " "
+						.. self.git_status_current
 				end,
 				hl = { fg = "black" },
 			}),
@@ -223,7 +235,7 @@ return {
 			update = { "User", pattern = "LazyUpdate" },
 			utils.surround({ "", "" }, "lightblue", {
 				provider = function()
-					return require("lazy.status").updates() .. " "
+					return require("lazy.status").updates()
 				end,
 				on_click = {
 					callback = function()

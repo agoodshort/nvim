@@ -79,7 +79,6 @@ return {
 
 		-- Toggle
 		wk.register({
-			["+"] = { "<Cmd>lua vim.lsp.buf.format()<CR>", "Format Using LSP Only" },
 			["/"] = { "<Cmd>:noh<CR>", "Clear Search Highlight" },
 			N = {
 				function()
@@ -212,21 +211,28 @@ return {
 		wk.register({
 			B = { "<Cmd>Telescope scope buffers initial_mode=normal<CR>", "All Buffers" },
 			bb = { "<Cmd>Telescope buffers initial_mode=normal<CR>", "Tabbed Buffers" },
+			o = {
+				name = "Others",
+				i = { "<Cmd>IconPickerYank<CR>", "Icons Picker" },
+				t = { "<Cmd>Telescope http list<CR>", "List HTTP Status Code" },
+				e = { "<Cmd>Telescope env<CR>", "List Environment Variables" },
+			},
+			n = {
+				name = "Node Packages",
+				n = { "<Cmd>Telescope node_modules list<CR>", "List Node Modules" },
+				N = { "<Cmd>Telescope package_info<CR>", "Package Info" },
+				i = { "<Cmd>Telescope import<CR>", "Package import" },
+			},
 			f = {
 				name = "Telescope", -- optional group name
 				a = { "<Cmd>Telescope lazy<CR>", "List Lazy plugins" },
 				c = { "<Cmd>Telescope neoclip<CR>", "List Clipboard" },
-				e = { "<Cmd>Telescope env<CR>", "List Environment Variables" },
 				f = { "<Cmd>Telescope find_files hidden=true<CR>", "Find Files" },
 				h = { "<Cmd>Telescope help_tags<CR>", "Help Tags" },
-				i = { "<Cmd>IconPickerYank<CR>", "Icons Picker" },
 				k = { "<Cmd>Telescope keymaps<CR>", "List Keymaps" },
 				l = { "<Cmd>Telescope live_grep custom_hidden=true<CR>", "Live Grep (inc. hidden, exc. .git)" },
 				ll = { "<Cmd>Telescope live_grep_args<CR>", "Live Grep Args" },
-				n = { "<Cmd>Telescope node_modules list<CR>", "List Node Modules" },
-				N = { "<Cmd>Telescope package_info<CR>", "Package Info" },
 				s = { "<Cmd>Telescope grep_string<CR>", "Grep String" },
-				t = { "<Cmd>Telescope http list<CR>", "List HTTP Status Code" },
 				u = { "<Cmd>Telescope undo<CR>", "Visualize Undo Tree" },
 				z = { "<Cmd>Telescope zoxide list<CR>", "List z" },
 				["?"] = { "<Cmd>Telescope find_pickers<CR>", "List Telescope Pickers" },
@@ -358,6 +364,11 @@ return {
 				"<Cmd>lua require('conform').format({ async = true, lsp_fallback = true })<CR>",
 				"Format Using conform.nvim",
 			},
+		}, leader_opts)
+
+		-- nvim-lint
+		wk.register({
+			["+"] = { "<Cmd>lua require('lint').try_lint()<CR>", "Run linter" },
 		}, leader_opts)
 
 		-- Undotree

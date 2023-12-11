@@ -16,6 +16,7 @@ return {
 			"tsakirist/telescope-lazy.nvim",
 			"paopaol/telescope-git-diffs.nvim",
 			"nvim-telescope/telescope-live-grep-args.nvim",
+			"piersolenski/telescope-import.nvim",
 			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 			{ "tiagovla/scope.nvim", opts = {} },
 			{ "ziontee113/icon-picker.nvim", opts = { disable_legacy_commands = true } },
@@ -110,6 +111,7 @@ return {
 			require("telescope").load_extension("scope")
 			require("telescope").load_extension("package_info")
 			require("telescope").load_extension("live_grep_args")
+			require("telescope").load_extension("import")
 		end,
 	},
 }

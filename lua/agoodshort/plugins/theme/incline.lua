@@ -2,19 +2,15 @@ return {
 	"b0o/incline.nvim",
 	event = "VeryLazy",
 	config = function()
+		local icons = require("agoodshort.icons")
 		local kana_colors = require("kanagawa.colors").setup()
 		local theme = kana_colors.theme
 
 		local function get_diagnostic_label(props)
-			local icons = {
-				Error = "",
-				Warn = "",
-				Info = "",
-				Hint = "",
-			}
+			local icons_diagnostic = icons.diagnostic
 
 			local label = {}
-			for severity, icon in pairs(icons) do
+			for severity, icon in pairs(icons_diagnostic) do
 				local n = #vim.diagnostic.get(props.buf, { severity = vim.diagnostic.severity[string.upper(severity)] })
 				if n > 0 then
 					table.insert(label, { icon .. " " .. n .. " ", group = "DiagnosticSign" .. severity })
@@ -24,10 +20,10 @@ return {
 		end
 
 		local function get_git_diff(props)
-			local icons = { removed = "", changed = "", added = "" }
+			local icons_git = icons.git
 			local labels = {}
 			local signs = vim.api.nvim_buf_get_var(props.buf, "gitsigns_status_dict")
-			for name, icon in pairs(icons) do
+			for name, icon in pairs(icons_git) do
 				if tonumber(signs[name]) and signs[name] > 0 then
 					table.insert(labels, { icon .. " " .. signs[name] .. " ", group = "Diff" .. name })
 				end
@@ -61,11 +57,11 @@ return {
 				if props.focused == true then
 					bg_color = "black"
 					fg_color = theme.ui.fg
-                    editor_bg_color = theme.ui.bg
+					editor_bg_color = theme.ui.bg
 				else
 					bg_color = theme.ui.bg
 					fg_color = theme.ui.nontext
-                    editor_bg_color = theme.ui.bg_dim
+					editor_bg_color = theme.ui.bg_dim
 				end
 
 				local buffer = {
@@ -81,7 +77,7 @@ return {
 				}
 
 				if vim.api.nvim_buf_get_option(props.buf, "modified") then
-					table.insert(buffer, { " [+]", guifg = "green", gui = "bold" })
+					table.insert(buffer, { " " .. icons.file.modified, guifg = "green", gui = "bold" })
 				end
 
 				-- Check if buffer is modifiable
@@ -89,7 +85,7 @@ return {
 					not vim.api.nvim_buf_get_option(props.buf, "modifiable")
 					or vim.api.nvim_buf_get_option(props.buf, "readonly")
 				then
-					table.insert(buffer, { " ", guifg = "orange", gui = "bold" })
+					table.insert(buffer, { " " .. icons.file.readonly, guifg = "orange", gui = "bold" })
 				end
 
 				-- Add separators
