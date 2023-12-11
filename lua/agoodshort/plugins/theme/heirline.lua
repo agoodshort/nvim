@@ -76,7 +76,7 @@ return {
 					["!"] = "!",
 					t = "Terminal",
 				},
-				mode_colors_map = {
+				mode_colors = {
 					n = "red",
 					i = "green",
 					v = "cyan",
@@ -91,26 +91,39 @@ return {
 					["!"] = "red",
 					t = "grey",
 				},
-				mode_color = function(self)
-					local mode = conditions.is_active() and vim.fn.mode() or "n"
-					return self.mode_colors_map[mode]
+			},
+			update = {
+				"ModeChanged",
+				pattern = "*:*",
+				callback = vim.schedule_wrap(function()
+					vim.cmd("redrawstatus")
+				end),
+			},
+            -- Return
+			{
+				provider = function()
+					return ""
+				end,
+				hl = function(self)
+					return { fg = self.mode_colors[self.mode:sub(1, 1)] }
 				end,
 			},
-			utils.surround({ "", "" }, function(self)
-				return self:mode_color()
-			end, {
+			{
 				provider = function(self)
 					return "  %2(" .. self.mode_names[self.mode] .. "%)"
 				end,
-				hl = { fg = "black", bold = true },
-				update = {
-					"ModeChanged",
-					pattern = "*:*",
-					callback = vim.schedule_wrap(function()
-						vim.cmd("redrawstatus")
-					end),
-				},
-			}),
+				hl = function(self)
+					return { fg = "black", bg = self.mode_colors[self.mode:sub(1, 1)], bold = true }
+				end,
+			},
+			{
+				provider = function()
+					return ""
+				end,
+				hl = function(self)
+					return { fg = self.mode_colors[self.mode:sub(1, 1)] }
+				end,
+			},
 		}
 
 		-- --------------------------------------------------
@@ -218,7 +231,6 @@ return {
 		-- Codeium
 		-- --------------------------------------------------
 		local Codeium = {
-
 			utils.surround({ "", "" }, "lightblue", {
 				provider = function()
 					return " " .. vim.fn["codeium#GetStatusString"]()
