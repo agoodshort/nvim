@@ -43,14 +43,10 @@ return {
 			["<C-P>"] = { "n", "x" },
 		},
 		disabled_keys = {
-			["<UP>"] = {},
-			["<DOWN>"] = {},
-			["<LEFT>"] = {},
-			["<RIGHT>"] = {},
-			-- ["<UP>"] = { "", "i" },
-			-- ["<DOWN>"] = { "", "i" },
-			-- ["<LEFT>"] = { "", "i" },
-			-- ["<RIGHT>"] = { "", "i" },
+			["<Up>"] = { "" },
+			["<Down>"] = { "" },
+			["<Left>"] = { "" },
+			["<Right>"] = { "" },
 		},
 		disabled_filetypes = {
 			"qf",
@@ -65,6 +61,7 @@ return {
 			"undotree",
 			"diff",
 			"sagarename",
+			"sagafinder",
 		},
 	},
 }
