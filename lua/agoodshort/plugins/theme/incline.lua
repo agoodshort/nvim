@@ -43,9 +43,9 @@ return {
 				},
 				padding = 0,
 			},
-            hide = {
-                cursorline = "focused_win",
-            },
+			hide = {
+				cursorline = "focused_win",
+			},
 			render = function(props)
 				local diagnostics = get_diagnostic_label(props)
 				local git_diffs = get_git_diff(props)
