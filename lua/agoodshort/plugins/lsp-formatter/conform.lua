@@ -16,8 +16,8 @@ return {
 				markdown = { "markdownlint", "markdown-toc", "injected" },
 				xml = { "xmlformat" },
 				yaml = { "yamlfmt" },
-				["_"] = { "trim_whitespace", "trim_newlines", "squeeze_blanks" }, -- pseudo formatters from conform.nvim
-				["*"] = { "codespell" },
+				["_"] = { "trim_whitespace", "trim_newlines", "squeeze_blanks" }, -- Run on filetypes that don't have a formatter, pseudo formatters from conform.nvim
+				["*"] = { "codespell" }, -- Run on all filetypes
 			},
 		}
 
