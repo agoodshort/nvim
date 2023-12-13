@@ -42,7 +42,7 @@ local lazy_defaults = {
 lazy.setup({
 	{ import = "agoodshort.plugins" },
 	{ import = "agoodshort.plugins.git" },
-	{ import = "agoodshort.plugins.lsp-formatter" },
+	{ import = "agoodshort.plugins.lsp-formatter-linter" },
 	{ import = "agoodshort.plugins.navigation" },
 	{ import = "agoodshort.plugins.terminal" },
 	{ import = "agoodshort.plugins.theme" },
