@@ -14,10 +14,10 @@ return {
 	},
 	config = function()
 		require("mason").setup({
-            ui = {
-                border = "rounded",
-            }
-        })
+			ui = {
+				border = "rounded",
+			},
+		})
 
 		local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
 

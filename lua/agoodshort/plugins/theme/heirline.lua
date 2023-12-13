@@ -99,7 +99,7 @@ return {
 					vim.cmd("redrawstatus")
 				end),
 			},
-            -- Return
+			-- Return
 			{
 				provider = function()
 					return ""
@@ -132,7 +132,7 @@ return {
 
 		local LSPActive = {
 			condition = conditions.lsp_attached,
-			update = { "LspAttach", "LspDetach", "BufEnter", "WinEnter", "BufWritePost" },
+			update = { "LspAttach", "LspDetach" },
 			on_click = {
 				callback = function()
 					vim.defer_fn(function()
@@ -147,20 +147,36 @@ return {
 					for _, server in pairs(vim.lsp.get_active_clients({ bufnr = 0 })) do
 						table.insert(names, server.name)
 					end
-					if require("lazy.core.config").plugins["nvim-lint"]._.loaded then
-						local linters = require("lint").get_running()
-						if #linters ~= 0 then
-							for _, linter in pairs(linters) do
-								table.insert(names, linter)
-							end
-						end
-					end
-					return " [" .. table.concat(names, ", ") .. "]"
+					return "󰒍 " .. table.concat(names, " ")
 				end,
 				hl = { fg = "white" },
 			}),
 		}
 
+		-- --------------------------------------------------
+		-- Linter
+		-- --------------------------------------------------
+
+		local LinterActive = {
+			condition = function()
+				if require("lazy.core.config").plugins["nvim-lint"]._.loaded then
+					return true
+				else
+					return false
+				end
+			end,
+			update = { "BufEnter", "WinEnter", "BufWritePost" },
+			utils.surround({ "", "" }, "orange", {
+				provider = function()
+					local linters = require("lint").get_running()
+					if #linters == 0 then
+						return "󰦕"
+					end
+					return "󱉶 " .. table.concat(linters, ", ")
+				end,
+				hl = { fg = "black" },
+			}),
+		}
 		-- --------------------------------------------------
 		-- Git
 		-- --------------------------------------------------
@@ -302,6 +318,8 @@ return {
 				Recorder,
 				Space,
 				LSPActive,
+				Space,
+				LinterActive,
 				Space,
 				Codeium,
 				Space,
