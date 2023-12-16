@@ -201,9 +201,10 @@ return {
 			n = {
 				name = "Noice", -- optional group name
 				t = { "<Cmd>Telescope noice<CR>", "Telescope History" },
-				h = { "<Cmd>Noice history<CR>", "Noice History" },
-				e = { "<Cmd>Noice errors<CR>", "Noice Errors" },
-				l = { "<Cmd>Noice last<CR>", "Noice Last" },
+				h = { "<Cmd>Noice history<CR>", "History" },
+				e = { "<Cmd>Noice errors<CR>", "Errors" },
+				l = { "<Cmd>Noice last<CR>", "Last" },
+				d = { "<Cmd>Noice dismiss<CR>", "Dismiss" },
 			},
 		}, leader2_opts)
 
@@ -258,6 +259,7 @@ return {
 				name = "Git Tools", -- optional name
 				F = { "<Cmd>Telescope git_files<CR>", "Telescope Git Files" },
 				f = { "<Cmd>DiffviewFileHistory --base=LOCAL %<CR>", "Diffview File History" },
+				p = { "<Cmd>DiffviewFileOpen<CR>", "Diffview Project" },
 				c = { "<Cmd>Telescope git_commits<CR>", "Telescope Git Commits" },
 				g = { "<Cmd>Telescope git_submodules<CR>", "LazyGit" },
 				u = { "<Cmd>lua _GITUI_TOGGLE()<CR>", "GitUI" },
