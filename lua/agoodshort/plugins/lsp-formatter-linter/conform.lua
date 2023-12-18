@@ -19,6 +19,11 @@ return {
 				["_"] = { "trim_whitespace", "trim_newlines", "squeeze_blanks" }, -- Run on filetypes that don't have a formatter, pseudo formatters from conform.nvim
 				["*"] = { "codespell" }, -- Run on all filetypes
 			},
+			prettier = {
+				command = require("conform.util").find_executable({
+					"node_modules/.bin/prettier",
+				}, "prettier"),
+			},
 		}
 
 		for _, lang in ipairs(prettier_langs) do
