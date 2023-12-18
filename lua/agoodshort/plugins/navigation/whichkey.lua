@@ -340,7 +340,6 @@ return {
 				r = { "<Cmd>Lspsaga rename<CR>", "Lspsaga Rename" },
 				d = {
 					name = "Diagnostics",
-					c = { "<Cmd>Lspsaga show_cursor_diagnostics<CR>", "Lspsaga Show Cursor Diagnostics" },
 					l = { "<Cmd>Lspsaga show_line_diagnostics<CR>", "Lspsaga Show Line Diagnostics" },
 					b = { "<Cmd>Lspsaga show_buf_diagnostics<CR>", "Lspsaga Show Buffer Diagnostics" },
 					w = { "<Cmd>Lspsaga show_workspace_diagnostics<CR>", "Lspsaga Show Workspace Diagnostics" },
@@ -356,6 +355,8 @@ return {
 				T = { "<Cmd>Lspsaga peek_type_definition<CR>", "Lspsaga Peek Type Definition" },
 			},
 			K = { "<Cmd>Lspsaga hover_doc<CR>", "Lspsaga Hover Doc" },
+			["[d"] = { "<Cmd>Lspsaga diagnostic_jump_prev<CR>", "Lspsaga Diagnostic Jump Prev" },
+			["]d"] = { "<Cmd>Lspsaga diagnostic_jump_next<CR>", "Lspsaga Diagnostic Jump Next" },
 		}, blank_opts)
 
 		-- Conform.nvim
