@@ -7,9 +7,9 @@ return {
 			markdown = { "markdownlint", "alex", "proselint", "write_good" },
 		}
 
-		for _, lang in ipairs(eslint_langs) do
-			filetypes[lang] = { "eslint_d" }
-		end
+		-- for _, lang in ipairs(eslint_langs) do
+		-- 	filetypes[lang] = { "eslint_d" }
+		-- end
 
 		require("lint").linters_by_ft = filetypes
 
