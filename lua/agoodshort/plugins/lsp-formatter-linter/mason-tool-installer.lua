@@ -18,14 +18,15 @@ return {
 			-- Formatters
 			"stylua",
 			"shfmt",
-			"markdownlint",
 			"markdown-toc",
 			"codespell",
 			"xmlformatter",
 			"yamlfmt",
 			"taplo",
+			"prettier",
 
 			-- Linters
+			"markdownlint", -- and formatter
 			"eslint_d",
 		},
 	},
