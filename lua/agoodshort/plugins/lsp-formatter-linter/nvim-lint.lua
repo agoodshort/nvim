@@ -4,7 +4,7 @@ return {
 	config = function()
 		local eslint_langs = { "javascript", "javascriptreact", "typescript", "typescriptreact" }
 		local filetypes = {
-			markdown = { "markdownlint" },
+			markdown = { "markdownlint", "alex", "proselint", "write_good" },
 		}
 
 		for _, lang in ipairs(eslint_langs) do
