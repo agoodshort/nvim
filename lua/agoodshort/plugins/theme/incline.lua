@@ -13,7 +13,7 @@ return {
 			for severity, icon in pairs(icons_diagnostic) do
 				local n = #vim.diagnostic.get(props.buf, { severity = vim.diagnostic.severity[string.upper(severity)] })
 				if n > 0 then
-					table.insert(label, { icon .. " " .. n .. " ", group = "DiagnosticSign" .. severity })
+					table.insert(label, { icon .. n .. " ", group = "DiagnosticSign" .. severity })
 				end
 			end
 			return label
@@ -25,7 +25,7 @@ return {
 			local signs = vim.api.nvim_buf_get_var(props.buf, "gitsigns_status_dict")
 			for name, icon in pairs(icons_git) do
 				if tonumber(signs[name]) and signs[name] > 0 then
-					table.insert(labels, { icon .. " " .. signs[name] .. " ", group = "Diff" .. name })
+					table.insert(labels, { icon .. signs[name] .. " ", group = "Diff" .. name })
 				end
 			end
 			return labels
