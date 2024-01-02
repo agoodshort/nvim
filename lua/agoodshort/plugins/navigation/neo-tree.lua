@@ -33,23 +33,14 @@ return {
 		vim.fn.sign_define("DiagnosticSignWarn", { text = icons.diagnostic.warn, texthl = "DiagnosticSignWarn" })
 		vim.fn.sign_define("DiagnosticSignInfo", { text = icons.diagnostic.info, texthl = "DiagnosticSignInfo" })
 		vim.fn.sign_define("DiagnosticSignHint", { text = icons.diagnostic.hint, texthl = "DiagnosticSignHint" })
-		-- NOTE: this is changed from v1.x, which used the old style of highlight groups
-		-- in the form "LspDiagnosticsSignWarning"
 
 		require("neo-tree").setup({
 			sources = {
 				"filesystem",
 				"buffers",
-				-- "git_status",
+				"git_status",
 				"document_symbols",
 			},
-			close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
-			popup_border_style = "rounded",
-			enable_git_status = true,
-			enable_diagnostics = true,
-			use_default_mappings = false,
-			sort_case_insensitive = false, -- used when sorting files and directories in the tree
-			sort_function = nil, -- use a custom function for sorting files and directories in the tree
 			source_selector = {
 				winbar = true,
 				sources = { -- table
@@ -61,9 +52,20 @@ return {
 						source = "buffers",
 						display_name = " 󰈚  Buffers ",
 					},
+					{
+						source = "git_status",
+						display_name = "   Git ",
+					},
 					{ source = "document_symbols", display_name = "   Symbols " },
 				},
 			},
+			close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
+			popup_border_style = "rounded",
+			enable_git_status = true,
+			enable_diagnostics = true,
+			use_default_mappings = false,
+			sort_case_insensitive = false, -- used when sorting files and directories in the tree
+			sort_function = nil, -- use a custom function for sorting files and directories in the tree
 			default_component_configs = {
 				container = {
 					enable_character_fade = true,
@@ -100,7 +102,21 @@ return {
 					use_git_status_colors = true,
 					highlight = "NeoTreeFileName",
 				},
+				git_status = {
+					symbols = {
+						-- Change type
+						deleted = icons.git.deleted, -- this can only be used in the git_status source
+						renamed = "󰁕", -- this can only be used in the git_status source
+						-- Status type
+						untracked = icons.git.untracked,
+						ignored = icons.git.ignored,
+						unstaged = icons.git.unstaged,
+						staged = icons.git.staged,
+						conflict = icons.git.conflict,
+					},
+				},
 			},
+
 			window = {
 				position = "left",
 				width = 40,
@@ -187,8 +203,8 @@ return {
 						["D"] = "fuzzy_finder_directory",
 						["f"] = "filter_on_submit",
 						["<c-x>"] = "clear_filter",
-						["g["] = "prev_git_modified",
-						["g]"] = "next_git_modified",
+						["G"] = "prev_git_modified",
+						["g"] = "next_git_modified",
 						["d"] = "delete",
 						["p"] = "paste_from_clipboard",
 						["y"] = "copy_to_clipboard",
@@ -252,6 +268,19 @@ return {
 								{ "name", zindex = 10 },
 								{ "kind_name", zindex = 20, align = "right" },
 							},
+						},
+					},
+				},
+			},
+			git_status = {
+				window = {
+					position = "left",
+					mappings = {
+						["a"] = "git_add_all",
+						["r"] = "git_unstage_file",
+						["<space>"] = {
+							"git_add_file",
+							nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
 						},
 					},
 				},
