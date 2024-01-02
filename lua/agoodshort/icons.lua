@@ -6,10 +6,13 @@ local icons = {
 		hint = "󰌵 ",
 	},
 	git = {
-		added = " ",
-		removed = " ",
-		changed = " ",
+		deleted = "✖",
+		untracked = "",
+		unstaged = "󰄱",
+		staged = "",
+		ignored = "",
 		branch = " ",
+		conflict = "",
 	},
 	file = {
 		modified = "[+]",
