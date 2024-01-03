@@ -47,4 +47,5 @@ lazy.setup({
 	{ import = "agoodshort.plugins.terminal" },
 	{ import = "agoodshort.plugins.theme" },
 	{ import = "agoodshort.plugins.typing" },
+	{ import = "agoodshort.plugins.language-specific" },
 }, lazy_defaults)
