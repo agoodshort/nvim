@@ -18,17 +18,33 @@ return {
 		-- Project location
 		-- --------------------------------------------------
 		local WorkDir = {
-
+			init = function(self)
+				self.icon = icons.misc.folder
+				self.cwd = vim.fn.fnamemodify(vim.fn.getcwd(), ":~")
+			end,
 			utils.surround({ "", "" }, utils.get_highlight("Directory").fg, {
-				provider = function()
-					local icon = icons.misc.folder
-					local cwd = vim.fn.fnamemodify(vim.fn.getcwd(), ":~")
-					if not conditions.width_percent_below(#cwd, 0.25) then
-						cwd = vim.fn.pathshorten(cwd)
-					end
-					return icon .. " " .. cwd
-				end,
 				hl = { fg = "black" },
+				flexible = 10,
+				{
+					provider = function(self)
+						return self.icon .. " " .. self.cwd
+					end,
+				},
+				{
+					provider = function(self)
+						return self.icon .. " " .. vim.fn.pathshorten(self.cwd, 2)
+					end,
+				},
+				{
+					provider = function(self)
+						return self.icon .. " " .. vim.fn.pathshorten(self.cwd)
+					end,
+				},
+				{
+					provider = function(self)
+						return self.icon .. " " .. vim.fn.fnamemodify(self.cwd, ":t")
+					end,
+				},
 			}),
 		}
 		-- --------------------------------------------------
@@ -100,29 +116,32 @@ return {
 				end),
 			},
 			-- Return
+			flexible = 100,
 			{
-				provider = function()
-					return ""
-				end,
-				hl = function(self)
-					return { fg = self.mode_colors[self.mode:sub(1, 1)] }
-				end,
-			},
-			{
-				provider = function(self)
-					return "  %2(" .. self.mode_names[self.mode] .. "%)"
-				end,
-				hl = function(self)
-					return { fg = "black", bg = self.mode_colors[self.mode:sub(1, 1)], bold = true }
-				end,
-			},
-			{
-				provider = function()
-					return ""
-				end,
-				hl = function(self)
-					return { fg = self.mode_colors[self.mode:sub(1, 1)] }
-				end,
+				{
+					provider = function()
+						return ""
+					end,
+					hl = function(self)
+						return { fg = self.mode_colors[self.mode:sub(1, 1)] }
+					end,
+				},
+				{
+					provider = function(self)
+						return " %2(" .. self.mode_names[self.mode] .. "%)"
+					end,
+					hl = function(self)
+						return { fg = "black", bg = self.mode_colors[self.mode:sub(1, 1)], bold = true }
+					end,
+				},
+				{
+					provider = function()
+						return ""
+					end,
+					hl = function(self)
+						return { fg = self.mode_colors[self.mode:sub(1, 1)] }
+					end,
+				},
 			},
 		}
 
@@ -142,14 +161,31 @@ return {
 				name = "heirline_LSP",
 			},
 			utils.surround({ "", "" }, "green", {
-				provider = function()
-					local names = {}
-					for _, server in pairs(vim.lsp.get_active_clients({ bufnr = 0 })) do
-						table.insert(names, server.name)
-					end
-					return "󰒍 " .. table.concat(names, " ")
-				end,
 				hl = { fg = "white" },
+				flexible = 20,
+				{
+					provider = function()
+						local names = {}
+						for _, server in pairs(vim.lsp.get_active_clients({ bufnr = 0 })) do
+							table.insert(names, server.name)
+						end
+						return "󰒍 " .. table.concat(names, " ")
+					end,
+				},
+				{
+					provider = function()
+						local names = {}
+						for _, server in pairs(vim.lsp.get_active_clients({ bufnr = 0 })) do
+							table.insert(names, server.name:sub(1, 2))
+						end
+						return "󰒍 " .. table.concat(names, " ")
+					end,
+				},
+				{
+					provider = function()
+						return "󰒍"
+					end,
+				},
 			}),
 		}
 
@@ -158,23 +194,40 @@ return {
 		-- --------------------------------------------------
 
 		local LinterActive = {
-			condition = function()
+			condition = function(self)
 				if require("lazy.core.config").plugins["nvim-lint"]._.loaded then
-					return true
+					self.linters = require("lint").get_running()
+					if #self.linters ~= 0 then
+						return true
+					else
+						return false
+					end
 				else
 					return false
 				end
 			end,
-			update = { "BufEnter", "WinEnter", "BufWritePost" },
 			utils.surround({ "", "" }, "orange", {
-				provider = function()
-					local linters = require("lint").get_running()
-					if #linters == 0 then
-						return "󰦕"
-					end
-					return "󱉶 " .. table.concat(linters, ", ")
-				end,
 				hl = { fg = "black" },
+				flexible = 30,
+				{
+					provider = function(self)
+						return "󱉶 " .. table.concat(self.linters, ", ")
+					end,
+				},
+				{
+					provider = function(self)
+						local shortened = {}
+						for i, linter in ipairs(self.linters) do
+							shortened[i] = linter:sub(1, 2)
+						end
+						return "󱉶 " .. table.concat(shortened, ", ")
+					end,
+				},
+				{
+					provider = function()
+						return "󱉶"
+					end,
+				},
 			}),
 		}
 		-- --------------------------------------------------
@@ -198,7 +251,7 @@ return {
 				end,
 				name = "heirline_git",
 			},
-			update = { "DirChanged", "BufWritePost" },
+			update = { "DirChanged", "BufWritePost", "BufEnter" },
 
 			init = function(self)
 				self.current_dir_head = vim.fn.system("git rev-parse --abbrev-ref HEAD")
@@ -232,14 +285,36 @@ return {
 			end,
 
 			utils.surround({ "", "" }, "orange", {
-				provider = function(self)
-					return icons.git.branch
-						.. " "
-						.. self.current_dir_head:gsub("%\n", "")
-						.. " "
-						.. self.git_status_current
-				end,
 				hl = { fg = "black" },
+				flexible = 2,
+				{
+					provider = function(self)
+						return icons.git.branch
+							.. " "
+							.. self.current_dir_head:gsub("%\n", "")
+							.. " "
+							.. self.git_status_current
+					end,
+				},
+				{
+					provider = function(self)
+						return icons.git.branch
+							.. " "
+							.. self.current_dir_head:gsub("%\n", ""):sub(1, 10)
+							.. "..."
+							.. " "
+							.. self.git_status_current
+					end,
+				},
+				{
+					provider = function(self)
+						if self.git_status_current == "" then
+							return icons.git.branch
+						else
+							return icons.git.branch .. " " .. self.git_status_current
+						end
+					end,
+				},
 			}),
 		}
 
@@ -261,17 +336,25 @@ return {
 		local Lazy = {
 			condition = require("lazy.status").has_updates,
 			update = { "User", pattern = "LazyUpdate" },
-			utils.surround({ "", "" }, "lightblue", {
-				provider = function()
-					return require("lazy.status").updates()
-				end,
-				on_click = {
-					callback = function()
+			on_click = {
+				callback = function()
+					vim.defer_fn(function()
 						vim.cmd("Lazy")
-					end,
-					name = "update_plugins",
-				},
+					end, 100)
+				end,
+				name = "update_plugins",
+			},
+			utils.surround({ "", "" }, "lightblue", {
 				hl = { fg = "black" },
+				flexible = 1,
+				{
+					provider = function()
+						return require("lazy.status").updates()
+					end,
+				},
+				{
+					provider = "",
+				},
 			}),
 		}
 
