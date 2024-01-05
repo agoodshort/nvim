@@ -27,3 +27,4 @@ NVIM_APPNAME=agoodshort/nvim/ nvim
 - [ ] Review how to use `K` when on neovim man page
 - [ ] Neovim `initial_mode = "normal"` does not work for extensions git_diffs
 - [ ] uncomment git config in lazy.nvim
+- [ ] test [NeoAI](https://github.com/Bryley/neoai.nvim)
