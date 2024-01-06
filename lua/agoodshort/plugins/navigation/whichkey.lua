@@ -260,7 +260,7 @@ return {
 				name = "Git Tools", -- optional name
 				F = { "<Cmd>Telescope git_files<CR>", "Telescope Git Files" },
 				f = { "<Cmd>DiffviewFileHistory --base=LOCAL %<CR>", "Diffview File History" },
-				p = { "<Cmd>DiffviewFileOpen<CR>", "Diffview Project" },
+				p = { "<Cmd>DiffviewOpen origin/HEAD<CR>", "Diffview Project Origin" },
 				c = { "<Cmd>Telescope git_commits<CR>", "Telescope Git Commits" },
 				g = { "<Cmd>Telescope git_submodules<CR>", "LazyGit" },
 				u = { "<Cmd>lua _GITUI_TOGGLE()<CR>", "GitUI" },
