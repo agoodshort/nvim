@@ -141,12 +141,6 @@ return {
 			["K"] = { ":m '<-2<CR>gv=gv", "Move Text to Previous line" },
 		}, blank_opts_visual)
 
-		-- -- Up and down centered
-		-- wk.register({
-		-- 	["<C-u>"] = { "<C-u>zz", "Move up centered" },
-		-- 	["<C-d>"] = { "<C-d>zz", "Move down centered" },
-		-- }, blank_opts)
-
 		-- Quickfix
 		wk.register({
 			["[q"] = { "<Cmd>QNext<CR>", "Previous Quickfix" },
@@ -184,7 +178,7 @@ return {
 		wk.register({
 			b = { "<Cmd>Neotree toggle buffers<CR>", "Neotree Filesystem" },
 			e = { "<Cmd>Neotree toggle filesystem<CR>", "Neotree Filesystem" },
-            g = { "<Cmd>Neotree toggle git_status<CR>", "Neotree Git" },
+			g = { "<Cmd>Neotree toggle git_status<CR>", "Neotree Git" },
 			s = { "<Cmd>Neotree toggle document_symbols<CR>", "Neotree Symbols" },
 		}, leader_opts)
 
@@ -309,7 +303,7 @@ return {
 
 		-- Vim-doge
 		wk.register({
-			d = { "<Cmd>DogeGenerate<CR>", "Generate Documentation" },
+			D = { "<Cmd>DogeGenerate<CR>", "Generate Documentation" },
 		}, leader_opts)
 
 		-- Incline
@@ -394,10 +388,10 @@ return {
 		wk.register({
 			n = {
 				name = "NPM Package Info",
-				s = { "<Cmd>lua require('package-info').toggle()<CR>", "Show" },
-				d = { "<Cmd>PackageInfoDelete<CR>", "Delete" },
-				v = { "<Cmd>PackageInfoChangeVersion<CR>", "Change Version" },
-				i = { "<Cmd>PackageInfoInstall<CR>", "Install" },
+				s = { "<Cmd>lua require('package-info').toggle()<CR>", "Show NPM Package Info" },
+				d = { "<Cmd>PackageInfoDelete<CR>", "Delete NPM Package" },
+				v = { "<Cmd>PackageInfoChangeVersion<CR>", "Change NPM Package Version" },
+				i = { "<Cmd>PackageInfoInstall<CR>", "Install NPM Package" },
 			},
 		}, leader_opts)
 
@@ -409,6 +403,17 @@ return {
 				r = { "<Cmd>CellularAutomaton make_it_rain<CR>", "Make It Rain" },
 			},
 		}, leader2_opts)
+
+		-- Debugger
+		wk.register({
+			d = {
+				name = "Debugger",
+				t = { "<Cmd>lua require('dapui').toggle()<CR>", "Dap-ui toggle" },
+				r = { "<Cmd>lua require('dapui').open({reset = true})<CR>", "Dap-ui reset" },
+				b = { "<Cmd>DapToggleBreakpoint<CR>", "Toggle dap breakpoint" },
+				v = { "<Cmd>DapContinue<CR>", "Dap continue" },
+			},
+		}, leader_opts)
 
 		wk.setup()
 	end,
