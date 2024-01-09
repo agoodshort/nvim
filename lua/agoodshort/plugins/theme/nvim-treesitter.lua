@@ -29,6 +29,7 @@ return {
 				"dockerfile",
 				"gitignore",
 				"regex",
+				"rust",
 			},
 			-- select blocks with <CR>
 			auto_install = true,

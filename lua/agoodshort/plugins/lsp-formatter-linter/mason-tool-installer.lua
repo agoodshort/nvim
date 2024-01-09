@@ -14,6 +14,7 @@ return {
 			"beautysh",
 			"cfn-lint",
 			"bash-language-server",
+			"rust-analyzer",
 
 			-- Formatters
 			"stylua",
