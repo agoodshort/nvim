@@ -33,7 +33,9 @@ return {
 		--              -- SchemaStore.nvim cannot do it for us
 		-- end
 
-		require("neodev").setup({})
+		require("neodev").setup({
+			library = { plugins = { "nvim-dap-ui" }, types = true },
+		})
 
 		local lspconfig = require("lspconfig")
 		require("mason-lspconfig").setup_handlers({
