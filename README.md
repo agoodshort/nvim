@@ -28,3 +28,4 @@ NVIM_APPNAME=agoodshort/nvim/ nvim
 - [ ] Neovim `initial_mode = "normal"` does not work for extensions git_diffs
 - [ ] uncomment git config in lazy.nvim
 - [ ] test [NeoAI](https://github.com/Bryley/neoai.nvim)
+- [ ] Telescope live grep to wrap lines. Check if plugin can do this, otherwise see [telescope.nvim documentation](https://github.com/nvim-telescope/telescope.nvim#previewers)
