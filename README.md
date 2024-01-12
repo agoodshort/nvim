@@ -21,6 +21,10 @@ Open Neovim with this config:
 NVIM_APPNAME=agoodshort/nvim/ nvim
 ```
 
+## Tips
+
+When replacing using `%s`, you can use `<C-r><C-w>` to get the word under the cursor into to command line.
+
 ## To Do
 
 - [ ] Review the use of `./luarc.json` file
