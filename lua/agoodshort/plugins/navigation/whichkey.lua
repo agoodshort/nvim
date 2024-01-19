@@ -169,6 +169,9 @@ return {
 		}, blank_opts)
 		wk.register({
 			["<C-c>"] = { "<ESC>", "Escape" },
+		}, blank_opts_visual)
+		wk.register({
+			["<C-c>"] = { "<ESC>", "Escape" },
 		}, blank_opts_insert)
 
 		-- ####################################################################
