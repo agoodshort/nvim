@@ -19,6 +19,10 @@ return {
 			},
 		})
 
+		require("neodev").setup({
+			library = { plugins = { "nvim-dap-ui" }, types = true },
+		})
+
 		local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 		-- Add folding capabilities required by ufo.nvim
@@ -32,10 +36,6 @@ return {
 		--              -- Could it be used to display the name of the schema?
 		--              -- SchemaStore.nvim cannot do it for us
 		-- end
-
-		require("neodev").setup({
-			library = { plugins = { "nvim-dap-ui" }, types = true },
-		})
 
 		local lspconfig = require("lspconfig")
 		require("mason-lspconfig").setup_handlers({
