@@ -389,7 +389,7 @@ return {
 			["<S-Tab>"] = { "<Cmd>call codeium#Clear()<CR>", "Codeium clear" },
 		}, blank_opts_insert)
 		wk.register({
-			["c"] = { "<Cmd>CodeiumToggle<CR>", "Codeium Toggle" },
+			["C"] = { "<Cmd>CodeiumToggle<CR>", "Codeium Toggle" },
 		}, leader_opts)
 
 		-- NPM Package Info
