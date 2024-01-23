@@ -28,3 +28,4 @@ NVIM_APPNAME=agoodshort/nvim/ nvim
 - [ ] Neovim `initial_mode = "normal"` does not work for extensions git_diffs
 - [ ] uncomment git config in lazy.nvim
 - [ ] test [NeoAI](https://github.com/Bryley/neoai.nvim)
+- [ ] [Show appropriate documentation](https://github.com/Saecki/crates.nvim/wiki/Documentation-v0.4.0#show-appropriate-documentation-in-cargotoml) in `cargo.toml`

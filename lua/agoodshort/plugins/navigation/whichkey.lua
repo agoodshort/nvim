@@ -384,6 +384,28 @@ return {
 			["c"] = { "<Cmd>CodeiumToggle<CR>", "Codeium Toggle" },
 		}, leader_opts)
 
+		-- Crates.nvim
+		wk.register({
+			c = {
+				name = "Crates",
+				s = { "<Cmd>lua require('crates').toggle()<CR>", "Show Crates virtual lines" },
+				v = { "<Cmd>lua require('crates').show_versions_popup()<CR>", "Show Crates versions" },
+				f = { "<Cmd>lua require('crates').show_features_popup()<CR>", "Show Crates features" },
+				d = { "<Cmd>lua require('crates').show_dependencies_popup()<CR>", "Show Crates dependencies" },
+				u = { "<Cmd>lua require('crates').update_crate()<CR>", "Update crate" },
+				a = { "<Cmd>lua require('crates').update_all_crates()<CR>", "Update All Crates" },
+				x = {
+					"<Cmd>lua require('crates').expand_plain_crate_to_inline_table()<CR>",
+					"Expand Plain Crate To Inline Table",
+				},
+				H = { "<Cmd>lua require('crates').open_homepage()<CR>", "Open Crate Homepage" },
+				R = { "<Cmd>lua require('crates').open_repository()<CR>", "Open Crate Repository" },
+				D = { "<Cmd>lua require('crates').open_documentation()<CR>", "Open Crate Documentation" },
+				C = { "<Cmd>lua require('crates').open_crates_io()<CR>", "Open Crates.io" },
+				i = { "<Cmd>PackageInfoInstall<CR>", "Install NPM Package" },
+			},
+		}, leader_opts)
+
 		-- NPM Package Info
 		wk.register({
 			n = {
