@@ -266,6 +266,11 @@ return {
 			},
 		}, leader_opts)
 
+		wk.register({
+			["]g"] = { "<Cmd>lua require('gitsigns').next_hunk()<CR>", "Next Git Hunk" },
+			["[g"] = { "<Cmd>lua require('gitsigns').prev_hunk()<CR>", "Previous Git Hunk" },
+		}, blank_opts)
+
 		-- Tab Management
 		wk.register({
 			["<C-t>"] = {
@@ -384,7 +389,7 @@ return {
 			["<S-Tab>"] = { "<Cmd>call codeium#Clear()<CR>", "Codeium clear" },
 		}, blank_opts_insert)
 		wk.register({
-			["c"] = { "<Cmd>CodeiumToggle<CR>", "Codeium Toggle" },
+			["C"] = { "<Cmd>CodeiumToggle<CR>", "Codeium Toggle" },
 		}, leader_opts)
 
 		-- NPM Package Info
