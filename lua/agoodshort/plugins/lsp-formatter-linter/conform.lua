@@ -9,6 +9,7 @@ return {
 		local options = {
 			notify_on_error = true,
 			formatters_by_ft = {
+				python = { "black" },
 				lua = { "stylua" },
 				bash = { "shfmt" },
 				zsh = { "shfmt" },

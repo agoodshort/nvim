@@ -24,6 +24,7 @@ return {
 			"yamlfmt",
 			"taplo",
 			"prettier",
+			"black",
 
 			-- Linters
 			"markdownlint", -- and formatter
