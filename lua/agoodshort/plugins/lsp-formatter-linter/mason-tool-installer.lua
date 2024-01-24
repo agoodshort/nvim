@@ -28,6 +28,9 @@ return {
 
 			-- Linters
 			"markdownlint", -- and formatter
+			"alex",
+			"proselint",
+			"write-good",
 			"eslint_d",
 		},
 	},
