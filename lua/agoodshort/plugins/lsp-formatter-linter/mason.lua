@@ -11,6 +11,7 @@ return {
 		"kevinhwang91/nvim-ufo",
 		"b0o/schemastore.nvim",
 		"stevearc/conform.nvim",
+		"mrcjkb/rustaceanvim",
 	},
 	config = function()
 		require("mason").setup({
@@ -37,6 +38,13 @@ return {
 		--              -- SchemaStore.nvim cannot do it for us
 		-- end
 
+		-- Adds capabilities to rustaceanvim
+		vim.g.rustacenvim = {
+			server = {
+				capabilities = lsp_capabilities,
+			},
+		}
+
 		local lspconfig = require("lspconfig")
 		require("mason-lspconfig").setup_handlers({
 			function(server_name)
@@ -45,6 +53,24 @@ return {
 					capabilities = lsp_capabilities,
 				})
 			end,
+
+			-- Rust
+			-- Do not spin up rust-analyzer automatically because it starts with rustacenvim
+			["rust_analyzer"] = function() end,
+
+			-- Lua (to use with v0.10 for inlay-hints)
+            -- https://www.youtube.com/watch?v=DYaTzkw3zqQ
+			-- ["lua_ls"] = function()
+			-- 	lspconfig.lua_ls.setup({
+			-- 		settings = {
+			-- 			Lua = {
+			-- 				hint = {
+			-- 					enable = true,
+			-- 				},
+			-- 			},
+			-- 		},
+			-- 	})
+			-- end,
 
 			-- JSON
 			["jsonls"] = function()
