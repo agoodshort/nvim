@@ -94,4 +94,3 @@
   "vim-doge": { "branch": "master", "commit": "aa449a31373526fe12e72dde4532c1d7abf6787a" },
   "vim-wakatime": { "branch": "master", "commit": "cae21a19c3db4d9aadd5d320de3da0c99dfd0f62" },
   "which-key.nvim": { "branch": "main", "commit": "4433e5ec9a507e5097571ed55c02ea9658fb268a" }
-}

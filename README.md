@@ -21,6 +21,10 @@ Open Neovim with this config:
 NVIM_APPNAME=agoodshort/nvim/ nvim
 ```
 
+## Tips
+
+When replacing using `%s`, you can use `<C-r><C-w>` to get the word under the cursor into to command line.
+
 ## To Do
 
 - [ ] Review the use of `./luarc.json` file
@@ -29,3 +33,4 @@ NVIM_APPNAME=agoodshort/nvim/ nvim
 - [ ] uncomment git config in lazy.nvim
 - [ ] test [NeoAI](https://github.com/Bryley/neoai.nvim)
 - [ ] [Show appropriate documentation](https://github.com/Saecki/crates.nvim/wiki/Documentation-v0.4.0#show-appropriate-documentation-in-cargotoml) in `cargo.toml`
+- [ ] Telescope live grep to wrap lines. Check if plugin can do this, otherwise see [telescope.nvim documentation](https://github.com/nvim-telescope/telescope.nvim#previewers)

@@ -169,6 +169,9 @@ return {
 		}, blank_opts)
 		wk.register({
 			["<C-c>"] = { "<ESC>", "Escape" },
+		}, blank_opts_visual)
+		wk.register({
+			["<C-c>"] = { "<ESC>", "Escape" },
 		}, blank_opts_insert)
 
 		-- ####################################################################
@@ -262,6 +265,11 @@ return {
 				d = { "<Cmd>Telescope git_diffs diff_commits<CR>", "Diffview" },
 			},
 		}, leader_opts)
+
+		wk.register({
+			["]g"] = { "<Cmd>lua require('gitsigns').next_hunk()<CR>", "Next Git Hunk" },
+			["[g"] = { "<Cmd>lua require('gitsigns').prev_hunk()<CR>", "Previous Git Hunk" },
+		}, blank_opts)
 
 		-- Tab Management
 		wk.register({
@@ -381,7 +389,7 @@ return {
 			["<S-Tab>"] = { "<Cmd>call codeium#Clear()<CR>", "Codeium clear" },
 		}, blank_opts_insert)
 		wk.register({
-			["c"] = { "<Cmd>CodeiumToggle<CR>", "Codeium Toggle" },
+			["C"] = { "<Cmd>CodeiumToggle<CR>", "Codeium Toggle" },
 		}, leader_opts)
 
 		-- Crates.nvim

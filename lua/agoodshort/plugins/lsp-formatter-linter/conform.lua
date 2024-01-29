@@ -9,6 +9,7 @@ return {
 		local options = {
 			notify_on_error = true,
 			formatters_by_ft = {
+				python = { "black" },
 				lua = { "stylua" },
 				bash = { "shfmt" },
 				zsh = { "shfmt" },
@@ -18,7 +19,8 @@ return {
 				yaml = { "yamlfmt" },
 				rust = { "rustfmt" }, -- Installed manually through brew
 				["_"] = { "trim_whitespace", "trim_newlines", "squeeze_blanks" }, -- Run on filetypes that don't have a formatter, pseudo formatters from conform.nvim
-				["*"] = { "codespell" }, -- Run on all filetypes
+				-- Causes issue with Revanista's typos
+				-- ["*"] = { "codespell" }, -- Run on all filetypes
 			},
 			prettier = {
 				command = require("conform.util").find_executable({
