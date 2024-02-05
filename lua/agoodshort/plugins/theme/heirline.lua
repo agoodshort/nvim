@@ -254,9 +254,15 @@ return {
 			update = { "DirChanged", "BufWritePost", "BufEnter" },
 
 			init = function(self)
-				self.current_dir_head = vim.fn.system("git rev-parse --abbrev-ref HEAD")
+				local head_message = vim.fn.system("git rev-parse --abbrev-ref HEAD")
+				if string.find(head_message, "fatal") then
+					self.current_dir_head = vim.fn.system("git branch --show-current") .. " (no origin)"
+				else
+					self.current_dir_head = head_message
+				end
 				self.current_dir_status = vim.fn.system("git status -bs")
 				self.git_status_current = ""
+
 				for s in string.gmatch(self.current_dir_status, "[^" .. "\n" .. "]+") do
 					for w in string.gmatch(s, "[^" .. " " .. "]+") do
 						if w == "M" and string.find(self.git_status_current, "!") == nil then
