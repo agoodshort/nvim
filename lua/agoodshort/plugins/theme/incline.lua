@@ -1,6 +1,9 @@
 return {
 	"b0o/incline.nvim",
 	event = "VeryLazy",
+	dependencies = {
+		"lewis6991/gitsigns.nvim",
+	},
 	config = function()
 		local icons = require("agoodshort.icons")
 		local kana_colors = require("kanagawa.colors").setup()
@@ -25,7 +28,7 @@ return {
 			local status, signs = pcall(function()
 				vim.api.nvim_buf_get_var(props.buf, "gitsigns_status_dict")
 			end)
-			if status then
+			if status and signs then
 				for name, icon in pairs(icons_git) do
 					if tonumber(signs[name]) and signs[name] > 0 then
 						table.insert(labels, { icon .. signs[name] .. " ", group = "Diff" .. name })
