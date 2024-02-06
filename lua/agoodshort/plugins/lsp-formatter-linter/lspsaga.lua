@@ -2,6 +2,9 @@ return {
 	{
 		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
 		event = "LspAttach",
+		dependencies = {
+			"lewis6991/gitsigns.nvim",
+		},
 		config = function()
 			vim.diagnostic.config({
 				virtual_text = false, -- Disable virtual_text since it's redundant due to lsp_lines.
@@ -15,7 +18,6 @@ return {
 		"nvimdev/lspsaga.nvim",
 		dependencies = {
 			{ "nvim-tree/nvim-web-devicons" },
-			--Please make sure you install markdown and markdown_inline parser
 			{ "nvim-treesitter/nvim-treesitter" },
 			{ "neovim/nvim-lspconfig" },
 		},
@@ -147,8 +149,6 @@ return {
 					expand = "",
 					collapse = "",
 					code_action = "💡",
-					incoming = " ",
-					outgoing = " ",
 					hover = " ",
 					kind = {},
 				},
