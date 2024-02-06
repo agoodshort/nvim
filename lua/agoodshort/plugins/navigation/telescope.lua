@@ -55,9 +55,11 @@ return {
 					},
 				},
 				extensions = {
-					-- git_submodules = {
-					-- 	initial_mode = "normal",
-					-- },
+					git_submodules = {
+						git_cmd = "lazygit",
+                        previewer = true,
+						terminal_id = 9,
+					},
 					-- git_diffs = {
 					-- 	initial_mode = "normal",
 					-- },
