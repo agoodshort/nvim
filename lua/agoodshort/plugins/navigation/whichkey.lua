@@ -173,6 +173,17 @@ return {
 			},
 		}, { mode = "n", prefix = "<Leader>", buffer = nil, silent = false, noremap = true, nowait = false }) -- silent = false makes the command line appear
 
+		-- Scroll up
+		wk.register({
+			["<C-s>"] = { "<C-e>", "Scrollup" },
+		}, blank_opts)
+		wk.register({
+			["<C-s>"] = { "<C-e>", "Scrollup" },
+		}, blank_opts_visual)
+		wk.register({
+			["<C-s>"] = { "<C-e>", "Scrollup" },
+		}, blank_opts_insert)
+
 		-- Escape
 		wk.register({
 			["<C-c>"] = { "<ESC>", "Escape" },
