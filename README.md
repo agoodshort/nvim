@@ -33,4 +33,3 @@ When replacing using `%s`, you can use `<C-r><C-w>` to get the word under the cu
 - [ ] uncomment git config in lazy.nvim
 - [ ] test [NeoAI](https://github.com/Bryley/neoai.nvim)
 - [ ] Telescope live grep to wrap lines. Check if plugin can do this, otherwise see [telescope.nvim documentation](https://github.com/nvim-telescope/telescope.nvim#previewers)
-- [ ] install nvim-treesitter-context

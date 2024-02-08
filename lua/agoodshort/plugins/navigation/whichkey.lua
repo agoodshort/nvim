@@ -77,7 +77,7 @@ return {
 		-- ####################################################################
 		-- Default keymaps
 
-		-- Toggle
+		-- Toggle Search Highlight
 		wk.register({
 			["/"] = { "<Cmd>:noh<CR>", "Clear Search Highlight" },
 			N = {
@@ -86,6 +86,16 @@ return {
 				end,
 				"Toggle Relative Numbers",
 			},
+			z = {
+				function()
+					vim.o.spell = not vim.o.spell
+				end,
+				"Toggle Spell Check",
+			},
+		}, leader_opts)
+
+		-- Spelling
+		wk.register({
 			z = {
 				function()
 					vim.o.spell = not vim.o.spell
@@ -231,7 +241,7 @@ return {
 				k = { "<Cmd>Telescope keymaps<CR>", "List Keymaps" },
 				l = { "<Cmd>Telescope live_grep custom_hidden=true<CR>", "Live Grep (inc. hidden, exc. .git)" },
 				ll = { "<Cmd>Telescope live_grep_args<CR>", "Live Grep Args" },
-				s = { "<Cmd>Telescope grep_string<CR>", "Grep String" },
+				s = { "<Cmd>Telescope spell_suggest<CR>", "Spell Suggest" },
 				u = { "<Cmd>Telescope undo<CR>", "Visualize Undo Tree" },
 				z = { "<Cmd>Telescope zoxide list<CR>", "List z" },
 				["?"] = { "<Cmd>Telescope find_pickers<CR>", "List Telescope Pickers" },
