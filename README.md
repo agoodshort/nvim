@@ -12,7 +12,7 @@ Clone the repository and install the plugins:
 
 ```sh
 git clone git@github.com:agoodshort/nvim ~/.config/agoodshort/nvim
-NVIM_APPNAME=agoodshort/nvim/ nvim --headless +"Lazy! sync" +qa
+NVIM_APPNAME=agoodshort/nvim/ nvim --headless +"Lazy! restore" +qa
 ```
 
 Open Neovim with this config:
@@ -23,7 +23,12 @@ NVIM_APPNAME=agoodshort/nvim/ nvim
 
 ## Tips
 
-When replacing using `%s`, you can use `<C-r><C-w>` to get the word under the cursor into to command line.
+### Search and replace
+
+The below applies when replacing using `:%s`.
+
+- You can use `<C-r><C-w>` to get the word under the cursor into to command line.
+- When a word was already searched (e.g. `\word`), use `:%s//` to replace the word searched.
 
 ## To Do
 

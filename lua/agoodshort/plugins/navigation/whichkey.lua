@@ -77,7 +77,7 @@ return {
 		-- ####################################################################
 		-- Default keymaps
 
-		-- Toggle
+		-- Toggle Search Highlight
 		wk.register({
 			["/"] = { "<Cmd>:noh<CR>", "Clear Search Highlight" },
 			N = {
@@ -86,6 +86,16 @@ return {
 				end,
 				"Toggle Relative Numbers",
 			},
+			z = {
+				function()
+					vim.o.spell = not vim.o.spell
+				end,
+				"Toggle Spell Check",
+			},
+		}, leader_opts)
+
+		-- Spelling
+		wk.register({
 			z = {
 				function()
 					vim.o.spell = not vim.o.spell
@@ -163,6 +173,17 @@ return {
 			},
 		}, { mode = "n", prefix = "<Leader>", buffer = nil, silent = false, noremap = true, nowait = false }) -- silent = false makes the command line appear
 
+		-- Scroll up
+		wk.register({
+			["<C-s>"] = { "<C-e>", "Scrollup" },
+		}, blank_opts)
+		wk.register({
+			["<C-s>"] = { "<C-e>", "Scrollup" },
+		}, blank_opts_visual)
+		wk.register({
+			["<C-s>"] = { "<C-e>", "Scrollup" },
+		}, blank_opts_insert)
+
 		-- Escape
 		wk.register({
 			["<C-c>"] = { "<ESC>", "Escape" },
@@ -231,7 +252,7 @@ return {
 				k = { "<Cmd>Telescope keymaps<CR>", "List Keymaps" },
 				l = { "<Cmd>Telescope live_grep custom_hidden=true<CR>", "Live Grep (inc. hidden, exc. .git)" },
 				ll = { "<Cmd>Telescope live_grep_args<CR>", "Live Grep Args" },
-				s = { "<Cmd>Telescope grep_string<CR>", "Grep String" },
+				s = { "<Cmd>Telescope spell_suggest<CR>", "Spell Suggest" },
 				u = { "<Cmd>Telescope undo<CR>", "Visualize Undo Tree" },
 				z = { "<Cmd>Telescope zoxide list<CR>", "List z" },
 				["?"] = { "<Cmd>Telescope find_pickers<CR>", "List Telescope Pickers" },
@@ -340,7 +361,7 @@ return {
 				name = "LSP",
 				c = { "<Cmd>Lspsaga code_action<CR>", "Lspsaga Code Action" },
 				f = { "<Cmd>Lspsaga finder<CR>", "Lspsaga Definition Finder" },
-				v = { "<Cmd>lua require('lsp_lines').toggle()<CR>", "Toggle LSP Virtual Text" },
+				v = { "<Plug>(toggle-lsp-diag-vtext)", "Toggle LSP Virtual Text" },
 				o = { "<Cmd>Lspsaga outline<CR>", "Lspsaga Outline" },
 				r = { "<Cmd>Lspsaga rename<CR>", "Lspsaga Rename" },
 				d = {

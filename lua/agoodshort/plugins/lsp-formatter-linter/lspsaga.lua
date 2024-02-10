@@ -1,25 +1,16 @@
 return {
 	{
-		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-		event = "LspAttach",
-		dependencies = {
-			"lewis6991/gitsigns.nvim",
-		},
-		config = function()
-			vim.diagnostic.config({
-				virtual_text = false, -- Disable virtual_text since it's redundant due to lsp_lines.
-				virtual_lines = { only_current_line = true },
-			})
-			vim.diagnostic.config({ virtual_lines = false }, require("lazy.core.config").ns) -- https://github.com/folke/lazy.nvim/issues/620
-			require("lsp_lines").setup()
-		end,
-	},
-	{
 		"nvimdev/lspsaga.nvim",
 		dependencies = {
-			{ "nvim-tree/nvim-web-devicons" },
-			{ "nvim-treesitter/nvim-treesitter" },
-			{ "neovim/nvim-lspconfig" },
+			"nvim-tree/nvim-web-devicons",
+			"nvim-treesitter/nvim-treesitter",
+			"neovim/nvim-lspconfig",
+			{
+				"WhoIsSethDaniel/toggle-lsp-diagnostics.nvim",
+				config = function()
+					require("toggle_lsp_diagnostics").init(vim.diagnostic.config())
+				end,
+			},
 		},
 		config = function()
 			require("lspsaga").setup({
@@ -68,7 +59,6 @@ return {
 				},
 				lightbulb = {
 					enable = false,
-					enable_in_insert = true,
 					sign = false,
 					sign_priority = 40,
 					virtual_text = true,
