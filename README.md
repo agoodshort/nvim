@@ -12,7 +12,7 @@ Clone the repository and install the plugins:
 
 ```sh
 git clone git@github.com:agoodshort/nvim ~/.config/agoodshort/nvim
-NVIM_APPNAME=agoodshort/nvim/ nvim --headless +"Lazy! sync" +qa
+NVIM_APPNAME=agoodshort/nvim/ nvim --headless +"Lazy! restore" +qa
 ```
 
 Open Neovim with this config:
