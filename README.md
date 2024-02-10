@@ -4,6 +4,9 @@
 [![Leaderkey](https://dotfyle.com/agoodshort/nvim/badges/leaderkey?style=flat)](https://dotfyle.com/agoodshort/nvim)
 [![Last commit](https://img.shields.io/github/last-commit/agoodshort/nvim?style=flat)](https://github.com/agoodshort/nvim/commits/master)
 
+![swappy-20240209_152912](https://github.com/agoodshort/nvim/assets/33832653/4da91f67-0005-4a31-b166-e2cdd43c56a7)
+
+
 ## Install Instructions
 
 > Install requires Neovim 0.9+.
