@@ -6,8 +6,7 @@
 
 ![swappy-20240209_152912](https://github.com/agoodshort/nvim/assets/33832653/4da91f67-0005-4a31-b166-e2cdd43c56a7)
 
-
-## Install Instructions
+## Installation
 
 > Install requires Neovim 0.9+.
 
@@ -25,6 +24,10 @@ NVIM_APPNAME=agoodshort/nvim/ nvim
 ```
 
 ## Tips
+
+### LSPs, formatters and linters
+
+DOcumentation on the configuration of LSPs, formatters and linters is available in this [README.md](lua/agoodshort/plugins/lsp-formatter-linter/README.md)
 
 ### Search and replace
 
