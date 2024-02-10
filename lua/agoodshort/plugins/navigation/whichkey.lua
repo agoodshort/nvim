@@ -361,7 +361,7 @@ return {
 				name = "LSP",
 				c = { "<Cmd>Lspsaga code_action<CR>", "Lspsaga Code Action" },
 				f = { "<Cmd>Lspsaga finder<CR>", "Lspsaga Definition Finder" },
-				v = { "<Cmd>lua require('lsp_lines').toggle()<CR>", "Toggle LSP Virtual Text" },
+				v = { "<Plug>(toggle-lsp-diag-vtext)", "Toggle LSP Virtual Text" },
 				o = { "<Cmd>Lspsaga outline<CR>", "Lspsaga Outline" },
 				r = { "<Cmd>Lspsaga rename<CR>", "Lspsaga Rename" },
 				d = {
