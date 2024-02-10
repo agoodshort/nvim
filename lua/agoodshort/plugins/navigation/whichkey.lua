@@ -202,7 +202,7 @@ return {
 		wk.register({
 			b = { "<Cmd>Neotree toggle buffers<CR>", "Neotree Filesystem" },
 			e = { "<Cmd>Neotree toggle filesystem<CR>", "Neotree Filesystem" },
-			g = { "<Cmd>Neotree toggle git_status<CR>", "Neotree Git" },
+			ge = { "<Cmd>Neotree toggle git_status<CR>", "Neotree Git" },
 			s = { "<Cmd>Neotree toggle document_symbols<CR>", "Neotree Symbols" },
 		}, leader_opts)
 
