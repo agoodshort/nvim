@@ -33,6 +33,7 @@ return {
 			"proselint",
 			"write-good",
 			"eslint_d",
+			"shellcheck", -- used by bash-language-server, no config required in nvim-lint
 		},
 	},
 }
