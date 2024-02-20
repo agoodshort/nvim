@@ -29,7 +29,7 @@ return {
 		event = "InsertEnter",
 		dependencies = {
 			-- LuaSnip required
-			"L3MON4D3/LuaSnip",
+			{ "L3MON4D3/LuaSnip", dependencies = { "rafamadriz/friendly-snippets" } },
 			"saadparwaiz1/cmp_luasnip",
 			-- Recommended
 			"neovim/nvim-lspconfig",
@@ -40,7 +40,6 @@ return {
 			"hrsh7th/nvim-cmp",
 			-- My own
 			"hrsh7th/cmp-nvim-lua",
-			"rafamadriz/friendly-snippets",
 			"David-Kunz/cmp-npm", -- Configured above
 			"onsails/lspkind.nvim",
 		},
