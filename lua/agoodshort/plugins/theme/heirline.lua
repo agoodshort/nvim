@@ -17,6 +17,7 @@ return {
 		-- --------------------------------------------------
 		-- Project location
 		-- --------------------------------------------------
+
 		local WorkDir = {
 			init = function(self)
 				self.icon = icons.misc.folder
@@ -47,6 +48,7 @@ return {
 				},
 			}),
 		}
+
 		-- --------------------------------------------------
 		-- Mode
 		-- --------------------------------------------------
@@ -230,8 +232,10 @@ return {
 				},
 			}),
 		}
+
 		-- --------------------------------------------------
 		-- Git
+		-- Logic borrowed from https://github.com/agoodshort/telescope-git-submodules.nvim
 		-- --------------------------------------------------
 
 		local Git = {
@@ -327,6 +331,7 @@ return {
 		-- --------------------------------------------------
 		-- Codeium
 		-- --------------------------------------------------
+
 		local Codeium = {
 			utils.surround({ "", "" }, "lightblue", {
 				provider = function()
@@ -339,6 +344,7 @@ return {
 		-- --------------------------------------------------
 		-- Lazy
 		-- --------------------------------------------------
+
 		local Lazy = {
 			condition = require("lazy.status").has_updates,
 			update = { "User", pattern = "LazyUpdate" },
@@ -367,6 +373,7 @@ return {
 		-- --------------------------------------------------
 		-- Recorder
 		-- --------------------------------------------------
+
 		local Recorder = {
 			condition = function()
 				if require("lazy.core.config").plugins["nvim-recorder"]._.loaded then
