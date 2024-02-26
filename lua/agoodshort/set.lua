@@ -25,7 +25,7 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
-vim.opt.signcolumn = "auto:2"
+vim.opt.signcolumn = "yes:2"
 
 -- Needed to display nice colors
 vim.opt.termguicolors = true
