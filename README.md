@@ -45,4 +45,3 @@ The below applies when replacing using `:%s`.
 - [ ] test [NeoAI](https://github.com/Bryley/neoai.nvim)
 - [ ] [Show appropriate documentation](https://github.com/Saecki/crates.nvim/wiki/Documentation-v0.4.0#show-appropriate-documentation-in-cargotoml) in `cargo.toml`
 - [ ] Telescope live grep to wrap lines. Check if plugin can do this, otherwise see [telescope.nvim documentation](https://github.com/nvim-telescope/telescope.nvim#previewers)
-- [ ] install nvim-treesitter-context
