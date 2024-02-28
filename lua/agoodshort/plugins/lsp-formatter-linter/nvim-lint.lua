@@ -1,12 +1,15 @@
 return {
 	"mfussenegger/nvim-lint",
-	ft = { "javascript", "javascriptreact", "typescript", "typescriptreact", "markdown" },
+	-- ft = { "javascript", "javascriptreact", "typescript", "typescriptreact", "markdown", "lua" },
+	ft = { "markdown", "yaml", "json" },
 	config = function()
-		local eslint_langs = { "javascript", "javascriptreact", "typescript", "typescriptreact" }
 		local filetypes = {
 			markdown = { "markdownlint", "alex", "proselint", "write_good" },
+			yaml = { "yamllint" },
+			json = { "jsonlint" },
 		}
 
+		-- local eslint_langs = { "javascript", "javascriptreact", "typescript", "typescriptreact" }
 		-- for _, lang in ipairs(eslint_langs) do
 		-- 	filetypes[lang] = { "eslint_d" }
 		-- end
