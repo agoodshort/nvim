@@ -272,6 +272,11 @@ return {
 
 		wk.register({ ["<C-p>"] = { "<Cmd>Telescope keymaps<CR>", "List Keymaps" } }, blank_opts)
 
+		-- Treesitter-context
+		wk.register({
+			c = { "<Cmd>TSContextToggle<CR>", "Toggle Treesitter Context" },
+		}, leader_opts)
+
 		-- Git
 		wk.register({
 			g = {

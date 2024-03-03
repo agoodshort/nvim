@@ -12,7 +12,6 @@ return {
 			"yaml-language-server",
 			"marksman",
 			"beautysh",
-			"cfn-lint",
 			"bash-language-server",
 			"rust-analyzer",
 
@@ -33,6 +32,8 @@ return {
 			"proselint",
 			"write-good",
 			"eslint_d",
+			"yamllint",
+			"jsonlint",
 			"shellcheck", -- used by bash-language-server, no config required in nvim-lint
 		},
 	},
