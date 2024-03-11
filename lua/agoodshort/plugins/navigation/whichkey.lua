@@ -417,6 +417,9 @@ return {
 		wk.register({
 			["C"] = { "<Cmd>CodeiumToggle<CR>", "Codeium Toggle" },
 		}, leader_opts)
+		wk.register({
+			["c"] = { "<Cmd>call codeium#Chat()<CR>", "Codeium Chat" },
+		}, leader2_opts)
 
 		-- Crates.nvim
 		wk.register({
