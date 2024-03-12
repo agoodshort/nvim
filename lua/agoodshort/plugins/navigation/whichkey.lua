@@ -274,7 +274,7 @@ return {
 
 		-- Treesitter-context
 		wk.register({
-			c = { "<Cmd>TSContextToggle<CR>", "Toggle Treesitter Context" },
+			t = { "<Cmd>TSContextToggle<CR>", "Toggle Treesitter Context" },
 		}, leader_opts)
 
 		-- Git
