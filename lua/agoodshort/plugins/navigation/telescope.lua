@@ -57,8 +57,12 @@ return {
 				extensions = {
 					git_submodules = {
 						git_cmd = "lazygit",
-                        previewer = true,
+						previewer = true,
 						terminal_id = 9,
+						find_subdirectories = {
+							enabled = true,
+							depth = 2,
+						},
 					},
 					-- git_diffs = {
 					-- 	initial_mode = "normal",
