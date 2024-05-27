@@ -58,6 +58,19 @@ return {
 			-- Do not spin up rust-analyzer automatically because it starts with rustacenvim
 			["rust_analyzer"] = function() end,
 
+			-- Cypress Cucumber preprocessor https://github.com/badeball/cypress-cucumber-preprocessor
+			["cucumber_language_server"] = function()
+				lspconfig.cucumber_language_server.setup({
+					capabilities = lsp_capabilities, -- Needs to be added manually for each LSP
+					settings = {
+						cucumber = {
+							features = { "cypress/e2e/**/*.feature" },
+							glue = { "cypress/e2e/**/*.ts" },
+						},
+					},
+				})
+			end,
+
 			-- Lua (to use with v0.10 for inlay-hints)
             -- https://www.youtube.com/watch?v=DYaTzkw3zqQ
 			-- ["lua_ls"] = function()

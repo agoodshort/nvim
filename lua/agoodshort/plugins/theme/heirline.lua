@@ -153,7 +153,7 @@ return {
 
 		local LSPActive = {
 			condition = conditions.lsp_attached,
-			update = { "LspAttach", "LspDetach" },
+			update = { "LspAttach", "LspDetach", "BufEnter" },
 			on_click = {
 				callback = function()
 					vim.defer_fn(function()
