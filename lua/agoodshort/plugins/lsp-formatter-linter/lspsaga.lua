@@ -99,7 +99,7 @@ return {
 					auto_close = true,
 					custom_sort = nil,
 					keys = {
-						jump = "o",
+						jump = "<CR>",
 						expand_collapse = "u",
 						quit = "q",
 					},

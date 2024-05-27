@@ -62,6 +62,7 @@ return {
 			"diff",
 			"sagarename",
 			"sagafinder",
+			"sagaoutline",
 		},
 	},
 }
