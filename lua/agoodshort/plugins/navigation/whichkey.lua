@@ -369,6 +369,7 @@ return {
 				v = { "<Plug>(toggle-lsp-diag-vtext)", "Toggle LSP Virtual Text" },
 				o = { "<Cmd>Lspsaga outline<CR>", "Lspsaga Outline" },
 				r = { "<Cmd>Lspsaga rename<CR>", "Lspsaga Rename" },
+				h = { "<Cmd>InlayHintToggle<CR>", "Toggle LSP Inlay Hint" },
 				d = {
 					name = "Diagnostics",
 					l = { "<Cmd>Lspsaga show_line_diagnostics<CR>", "Lspsaga Show Line Diagnostics" },

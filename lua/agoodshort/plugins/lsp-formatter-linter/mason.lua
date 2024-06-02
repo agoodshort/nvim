@@ -20,6 +20,11 @@ return {
 			},
 		})
 
+		vim.api.nvim_create_user_command("InlayHintToggle", function()
+			vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = 0 }), { bufnr = 0 })
+			vim.cmd([[doautocmd LspAttach]]) -- hacky way to trigger heirline update
+		end, { desc = "Enable/Disable inlay hint on current buffer" })
+
 		require("neodev").setup({
 			library = { plugins = { "nvim-dap-ui" }, types = true },
 		})
@@ -42,6 +47,42 @@ return {
 		vim.g.rustacenvim = {
 			server = {
 				capabilities = lsp_capabilities,
+				settings = {
+					["rust-analyzer"] = {
+						inlayHints = {
+							bindingModeHints = {
+								enable = false,
+							},
+							chainingHints = {
+								enable = true,
+							},
+							closingBraceHints = {
+								enable = true,
+								minLines = 25,
+							},
+							closureReturnTypeHints = {
+								enable = "never",
+							},
+							lifetimeElisionHints = {
+								enable = "never",
+								useParameterNames = false,
+							},
+							maxLength = 25,
+							parameterHints = {
+								enable = true,
+							},
+							reborrowHints = {
+								enable = "never",
+							},
+							renderColons = true,
+							typeHints = {
+								enable = true,
+								hideClosureInitialization = false,
+								hideNamedConstructor = false,
+							},
+						},
+					},
+				},
 			},
 		}
 
@@ -71,19 +112,52 @@ return {
 				})
 			end,
 
-			-- Lua (to use with v0.10 for inlay-hints)
-            -- https://www.youtube.com/watch?v=DYaTzkw3zqQ
-			-- ["lua_ls"] = function()
-			-- 	lspconfig.lua_ls.setup({
-			-- 		settings = {
-			-- 			Lua = {
-			-- 				hint = {
-			-- 					enable = true,
-			-- 				},
-			-- 			},
-			-- 		},
-			-- 	})
-			-- end,
+			-- Lua
+			["lua_ls"] = function()
+				lspconfig.lua_ls.setup({
+					capabilities = lsp_capabilities, -- Needs to be added manually for each LSP
+					settings = {
+						Lua = {
+							hint = {
+								enable = true,
+							},
+						},
+					},
+				})
+			end,
+
+			-- TSServer
+			["tsserver"] = function()
+				lspconfig.tsserver.setup({
+					capabilities = lsp_capabilities, -- Needs to be added manually for each LSP
+					settings = {
+						typescript = {
+							inlayHints = {
+								includeInlayParameterNameHints = "all",
+								includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+								includeInlayFunctionParameterTypeHints = true,
+								includeInlayVariableTypeHints = true,
+								includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+								includeInlayPropertyDeclarationTypeHints = true,
+								includeInlayFunctionLikeReturnTypeHints = true,
+								includeInlayEnumMemberValueHints = true,
+							},
+						},
+						javascript = {
+							inlayHints = {
+								includeInlayParameterNameHints = "all",
+								includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+								includeInlayFunctionParameterTypeHints = true,
+								includeInlayVariableTypeHints = true,
+								includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+								includeInlayPropertyDeclarationTypeHints = true,
+								includeInlayFunctionLikeReturnTypeHints = true,
+								includeInlayEnumMemberValueHints = true,
+							},
+						},
+					},
+				})
+			end,
 
 			-- JSON
 			["jsonls"] = function()

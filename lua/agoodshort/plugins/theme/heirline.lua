@@ -171,7 +171,11 @@ return {
 						for _, server in pairs(vim.lsp.get_clients({ bufnr = 0 })) do
 							table.insert(names, server.name)
 						end
-						return "󰒍 " .. table.concat(names, " ")
+						local inlay_hint_status = "󰹏 "
+						if vim.lsp.inlay_hint.is_enabled({ bufnr = 0 }) then
+							inlay_hint_status = "󰌵 "
+						end
+						return "󰒍 " .. " " .. table.concat(names, " ") .. " " .. inlay_hint_status
 					end,
 				},
 				{
@@ -180,7 +184,11 @@ return {
 						for _, server in pairs(vim.lsp.get_clients({ bufnr = 0 })) do
 							table.insert(names, server.name:sub(1, 2))
 						end
-						return "󰒍 " .. table.concat(names, " ")
+						local inlay_hint_status = "󰹏 "
+						if vim.lsp.inlay_hint.is_enabled({ bufnr = 0 }) then
+							inlay_hint_status = "󰌵 "
+						end
+						return "󰒍 " .. " " .. table.concat(names, " ") .. " " .. inlay_hint_status
 					end,
 				},
 				{
