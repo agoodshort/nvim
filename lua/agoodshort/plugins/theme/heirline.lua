@@ -185,7 +185,7 @@ return {
 				},
 				{
 					provider = function()
-						return "󰒍"
+						return "󰒍 "
 					end,
 				},
 			}),
@@ -213,7 +213,7 @@ return {
 				flexible = 30,
 				{
 					provider = function(self)
-						return "󱉶 " .. table.concat(self.linters, ", ")
+						return "󱉶 " .. " " .. table.concat(self.linters, ", ")
 					end,
 				},
 				{
@@ -222,7 +222,7 @@ return {
 						for i, linter in ipairs(self.linters) do
 							shortened[i] = linter:sub(1, 2)
 						end
-						return "󱉶 " .. table.concat(shortened, ", ")
+						return "󱉶 " .. " " .. table.concat(shortened, ", ")
 					end,
 				},
 				{
