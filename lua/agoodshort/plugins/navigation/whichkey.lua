@@ -464,6 +464,11 @@ return {
 			},
 		}, leader2_opts)
 
+		-- Hardtime
+		wk.register({
+			H = { "<Cmd>Hardtime toggle<CR>", "Toggle Hardtime" },
+		}, leader2_opts)
+
 		-- Debugger
 		wk.register({
 			d = {
