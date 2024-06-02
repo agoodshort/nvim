@@ -4,7 +4,7 @@
 [![Leaderkey](https://dotfyle.com/agoodshort/nvim/badges/leaderkey?style=flat)](https://dotfyle.com/agoodshort/nvim)
 [![Last commit](https://img.shields.io/github/last-commit/agoodshort/nvim?style=flat)](https://github.com/agoodshort/nvim/commits/master)
 
-![swappy-20240209_152912](https://github.com/agoodshort/nvim/assets/33832653/4da91f67-0005-4a31-b166-e2cdd43c56a7)
+![Neovim Screenshot](https://github.com/agoodshort/nvim/assets/33832653/4da91f67-0005-4a31-b166-e2cdd43c56a7)
 
 ## Installation
 
@@ -27,7 +27,7 @@ NVIM_APPNAME=agoodshort/nvim/ nvim
 
 ### LSPs, formatters and linters
 
-DOcumentation on the configuration of LSPs, formatters and linters is available in this [README.md](lua/agoodshort/plugins/lsp-formatter-linter/README.md)
+Documentation on the configuration of LSPs, formatters and linters is available in this [README.md](lua/agoodshort/plugins/lsp-formatter-linter/README.md)
 
 ### Search and replace
 
@@ -45,3 +45,4 @@ The below applies when replacing using `:%s`.
 - [ ] test [NeoAI](https://github.com/Bryley/neoai.nvim)
 - [ ] [Show appropriate documentation](https://github.com/Saecki/crates.nvim/wiki/Documentation-v0.4.0#show-appropriate-documentation-in-cargotoml) in `cargo.toml`
 - [ ] Telescope live grep to wrap lines. Check if plugin can do this, otherwise see [telescope.nvim documentation](https://github.com/nvim-telescope/telescope.nvim#previewers)
+- [ ] Try image preview <https://github.com/nvim-neo-tree/neo-tree.nvim?tab=readme-ov-file#image-support-in-preview-mode>
