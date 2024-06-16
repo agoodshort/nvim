@@ -3,8 +3,17 @@ return {
 	event = { "BufWritePre" },
 	cmd = { "ConformInfo" },
 	config = function()
-		local prettier_langs =
-			{ "javascript", "javascriptreact", "typescript", "typescriptreact", "css", "html", "json" }
+		local prettier_langs = {
+			"javascript",
+			"javascriptreact",
+			"typescript",
+			"typescriptreact",
+			"css",
+			"html",
+			"json",
+			"yaml",
+			"cucumber",
+		}
 
 		local options = {
 			notify_on_error = true,
@@ -16,7 +25,6 @@ return {
 				toml = { "taplo" },
 				markdown = { "markdownlint", "markdown-toc", "injected" },
 				xml = { "xmlformat" },
-				yaml = { "yamlfmt" },
 				rust = { "rustfmt" }, -- Installed manually through brew
 				["_"] = { "trim_whitespace", "trim_newlines", "squeeze_blanks" }, -- Run on filetypes that don't have a formatter, pseudo formatters from conform.nvim
 				-- Causes issue with Revanista's typos
@@ -34,11 +42,6 @@ return {
 		end
 
 		require("conform").setup(options)
-
-		-- Optional config per formatter
-		require("conform").formatters.yamlfmt = {
-			prepend_args = { "-formatter", "retain_line_breaks=true" },
-		}
 	end,
 	init = function()
 		-- If you want the formatexpr, here is the place to set it

@@ -21,7 +21,6 @@ return {
 			"markdown-toc",
 			"codespell",
 			"xmlformatter",
-			"yamlfmt",
 			"taplo",
 			"prettier",
 			"black",
