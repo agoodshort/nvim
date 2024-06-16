@@ -47,4 +47,4 @@ vim.cmd([[autocmd TermOpen * setlocal nospell]])
 -- Make sure .env.* files get syntax highlight
 vim.cmd([[autocmd BufNewFile,BufReadPost .env.* set ft=sh]])
 vim.cmd([[autocmd BufNewFile,BufReadPost Brewfile* set ft=sh]])
-vim.cmd([[autocmd BufNewFile,BufReadPost *.conf set ft=sh]])
+vim.cmd([[autocmd BufNewFile,BufReadPost *.conf set ft=dosini]])

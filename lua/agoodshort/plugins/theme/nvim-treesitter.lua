@@ -35,6 +35,8 @@ return {
 					"dockerfile",
 					"gitignore",
 					"regex",
+					"hyprlang",
+					"git_config",
 				},
 				-- select blocks with <CR>
 				auto_install = true,
