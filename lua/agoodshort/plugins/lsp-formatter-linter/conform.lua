@@ -20,8 +20,8 @@ return {
 			formatters_by_ft = {
 				python = { "black" },
 				lua = { "stylua" },
-				bash = { "shfmt" },
-				zsh = { "shfmt" },
+				bash = { "beautysh" },
+				zsh = { "beautysh" },
 				toml = { "taplo" },
 				markdown = { "markdownlint", "markdown-toc", "injected" },
 				xml = { "xmlformat" },

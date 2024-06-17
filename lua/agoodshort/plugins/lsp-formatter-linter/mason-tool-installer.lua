@@ -11,13 +11,12 @@ return {
 			"typescript-language-server",
 			"yaml-language-server",
 			"marksman",
-			"beautysh",
 			"bash-language-server",
 			"rust-analyzer",
 
 			-- Formatters
 			"stylua",
-			"shfmt",
+			"beautysh",
 			"markdown-toc",
 			"codespell",
 			"xmlformatter",
