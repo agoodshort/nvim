@@ -204,16 +204,12 @@ return {
 
 		local LinterActive = {
 			condition = function(self)
-				if require("lazy.core.config").plugins["nvim-lint"]._.loaded then
-					self.linters = require("lint").get_running()
-					if #self.linters ~= 0 then
-						return true
-					else
-						return false
-					end
-				else
+				if not require("lazy.core.config").plugins["nvim-lint"]._.loaded then
 					return false
 				end
+
+				self.linters = require("lint")._resolve_linter_by_ft(vim.bo.filetype)
+				return self.linters ~= nil and #self.linters > 0
 			end,
 			utils.surround({ "", "" }, "orange", {
 				hl = { fg = "black" },
