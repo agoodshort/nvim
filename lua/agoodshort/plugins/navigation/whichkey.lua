@@ -394,7 +394,7 @@ return {
 		-- Conform.nvim
 		wk.register({
 			["="] = {
-				"<Cmd>lua require('conform').format({ async = true, lsp_fallback = true })<CR>",
+				"<Cmd>lua require('conform').format({ async = true, lsp_format = 'fallback' })<CR>",
 				"Format Using conform.nvim",
 			},
 		}, leader_opts)
