@@ -1,7 +1,7 @@
 return {
 	{
 		"Zeioth/markmap.nvim",
-		build = "npm install markmap-cli --prefix $HOME/.local/share/my-npm-tools",
+		build = "npm install -g markmap-cli",
 		cmd = { "MarkmapOpen", "MarkmapSave", "MarkmapWatch", "MarkmapWatchStop" },
 		opts = {
 			html_output = "", -- (default) Setting a empty string "" here means: [Current buffer path].html

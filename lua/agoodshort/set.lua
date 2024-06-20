@@ -33,9 +33,6 @@ vim.opt.termguicolors = true
 -- Vim updates faster
 vim.opt.updatetime = 250
 
--- Neovim node host
-vim.g.node_host_prog = "$XDG_DATA_HOME/my-npm-tools/node_modules/.bin/neovim-node-host"
-
 -- Automatically change the current directory
 vim.cmd([[autocmd BufEnter * silent! execute 'lcd' getcwd(-1)]])
 
