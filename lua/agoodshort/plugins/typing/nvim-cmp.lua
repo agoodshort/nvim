@@ -29,7 +29,7 @@ return {
 		event = "InsertEnter",
 		dependencies = {
 			-- LuaSnip required
-			{ "L3MON4D3/LuaSnip", dependencies = { "rafamadriz/friendly-snippets" } },
+			{ "L3MON4D3/LuaSnip", dependencies = { "rafamadriz/friendly-snippets" }, build = "make install_jsregexp" },
 			"saadparwaiz1/cmp_luasnip",
 			-- Recommended
 			"neovim/nvim-lspconfig",
