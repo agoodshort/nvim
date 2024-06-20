@@ -59,6 +59,7 @@ return {
 					end,
 				},
 				sources = {
+					{ name = "codeium" },
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
 					{ name = "path" },
@@ -95,6 +96,7 @@ return {
 						mode = "symbol_text",
 						maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
 						ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+						symbol_map = { Codeium = "" },
 					}),
 				},
 			})

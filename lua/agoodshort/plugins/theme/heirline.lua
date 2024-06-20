@@ -2,7 +2,6 @@ return {
 	"rebelot/heirline.nvim",
 	dependencies = {
 		"nvim-tree/nvim-web-devicons",
-		"Exafunction/codeium.vim",
 	},
 	event = "VeryLazy",
 	config = function()
@@ -337,19 +336,6 @@ return {
 		}
 
 		-- --------------------------------------------------
-		-- Codeium
-		-- --------------------------------------------------
-
-		local Codeium = {
-			utils.surround({ "", "" }, "lightblue", {
-				provider = function()
-					return " " .. vim.fn["codeium#GetStatusString"]()
-				end,
-				hl = { fg = "black" },
-			}),
-		}
-
-		-- --------------------------------------------------
 		-- Lazy
 		-- --------------------------------------------------
 
@@ -424,8 +410,6 @@ return {
 				LSPActive,
 				Space,
 				LinterActive,
-				Space,
-				Codeium,
 				Space,
 			},
 			opts = {

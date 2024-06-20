@@ -411,16 +411,8 @@ return {
 
 		-- Codeium
 		wk.register({
-			["<C-l>"] = { "<Cmd>call codeium#CycleCompletions(1)<CR>", "Codeium next" },
-			["<C-h>"] = { "<Cmd>call codeium#CycleCompletions(-1)<CR>", "Codeium previous" },
-			["<S-Tab>"] = { "<Cmd>call codeium#Clear()<CR>", "Codeium clear" },
-		}, blank_opts_insert)
-		wk.register({
-			["C"] = { "<Cmd>CodeiumToggle<CR>", "Codeium Toggle" },
+			["C"] = { "<Cmd>Codeium Chat<CR>", "Codeium Chat" },
 		}, leader_opts)
-		wk.register({
-			["c"] = { "<Cmd>call codeium#Chat()<CR>", "Codeium Chat" },
-		}, leader2_opts)
 
 		-- Crates.nvim
 		wk.register({
