@@ -231,12 +231,6 @@ return {
 		wk.register({
 			B = { "<Cmd>Telescope scope buffers initial_mode=normal<CR>", "All Buffers" },
 			bb = { "<Cmd>Telescope buffers initial_mode=normal<CR>", "Tabbed Buffers" },
-			o = {
-				name = "Others",
-				i = { "<Cmd>IconPickerYank<CR>", "Icons Picker" },
-				t = { "<Cmd>Telescope http list<CR>", "List HTTP Status Code" },
-				e = { "<Cmd>Telescope env<CR>", "List Environment Variables" },
-			},
 			n = {
 				name = "Node Packages",
 				n = { "<Cmd>Telescope node_modules list<CR>", "List Node Modules" },
@@ -244,7 +238,10 @@ return {
 				i = { "<Cmd>Telescope import<CR>", "Package import" },
 			},
 			f = {
-				name = "Telescope", -- optional group name
+				name = "Telescope",
+				i = { "<Cmd>IconPickerYank<CR>", "Icons Picker" },
+				t = { "<Cmd>Telescope http list<CR>", "List HTTP Status Code" },
+				e = { "<Cmd>Telescope env<CR>", "List Environment Variables" },
 				a = { "<Cmd>Telescope lazy<CR>", "List Lazy plugins" },
 				c = { "<Cmd>Telescope neoclip<CR>", "List Clipboard" },
 				f = { "<Cmd>Telescope find_files hidden=true<CR>", "Find Files" },
