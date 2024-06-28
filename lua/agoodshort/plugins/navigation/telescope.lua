@@ -5,7 +5,6 @@ return {
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"LinArcX/telescope-env.nvim",
-			"barrett-ruth/telescope-http.nvim",
 			"jvgrootveld/telescope-zoxide",
 			"keyvchan/telescope-find-pickers.nvim",
 			"debugloop/telescope-undo.nvim",
@@ -103,7 +102,6 @@ return {
 			})
 			require("telescope").load_extension("fzf")
 			require("telescope").load_extension("env")
-			require("telescope").load_extension("http")
 			require("telescope").load_extension("zoxide")
 			require("telescope").load_extension("find_pickers")
 			require("telescope").load_extension("undo")

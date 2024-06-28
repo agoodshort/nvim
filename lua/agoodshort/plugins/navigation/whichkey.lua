@@ -240,7 +240,6 @@ return {
 			f = {
 				name = "Telescope",
 				i = { "<Cmd>IconPickerYank<CR>", "Icons Picker" },
-				t = { "<Cmd>Telescope http list<CR>", "List HTTP Status Code" },
 				e = { "<Cmd>Telescope env<CR>", "List Environment Variables" },
 				a = { "<Cmd>Telescope lazy<CR>", "List Lazy plugins" },
 				c = { "<Cmd>Telescope neoclip<CR>", "List Clipboard" },
