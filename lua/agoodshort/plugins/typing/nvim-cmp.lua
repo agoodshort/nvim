@@ -67,6 +67,10 @@ return {
 					{ name = "nvim_lsp" },
 					{ name = "nvim_lua" },
 					{ name = "npm", keyword_length = 4 },
+					{
+						name = "lazydev",
+						group_index = 0, -- set group index to 0 to skip loading LuaLS completions
+					},
 				},
 				mapping = {
 					["<C-Space>"] = cmp.mapping.complete(),

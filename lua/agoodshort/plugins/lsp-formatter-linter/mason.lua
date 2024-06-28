@@ -7,7 +7,6 @@ return {
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		{ "neovim/nvim-lspconfig", dependencies = { "nvimdev/lspsaga.nvim" } },
 		"hrsh7th/cmp-nvim-lsp",
-		"folke/neodev.nvim",
 		"kevinhwang91/nvim-ufo",
 		"b0o/schemastore.nvim",
 		"stevearc/conform.nvim",
@@ -25,9 +24,9 @@ return {
 			vim.cmd([[doautocmd LspAttach]]) -- hacky way to trigger heirline update
 		end, { desc = "Enable/Disable inlay hint on current buffer" })
 
-		require("neodev").setup({
-			library = { plugins = { "nvim-dap-ui" }, types = true },
-		})
+		-- require("neodev").setup({
+		-- 	library = { plugins = { "nvim-dap-ui" }, types = true },
+		-- })
 
 		local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
 
