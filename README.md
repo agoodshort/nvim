@@ -40,8 +40,6 @@ The below applies when replacing using `:%s`.
 
 - [ ] Review how to use `K` when on neovim man page
 - [ ] Neovim `initial_mode = "normal"` does not work for extensions git_diffs
-- [ ] uncomment git config in lazy.nvim
 - [ ] test [NeoAI](https://github.com/Bryley/neoai.nvim)
 - [ ] [Show appropriate documentation](https://github.com/Saecki/crates.nvim/wiki/Documentation-v0.4.0#show-appropriate-documentation-in-cargotoml) in `cargo.toml`
 - [ ] Telescope live grep to wrap lines. Check if plugin can do this, otherwise see [telescope.nvim documentation](https://github.com/nvim-telescope/telescope.nvim#previewers)
-- [ ] Try image preview <https://github.com/nvim-neo-tree/neo-tree.nvim?tab=readme-ov-file#image-support-in-preview-mode>

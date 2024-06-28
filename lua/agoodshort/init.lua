@@ -37,6 +37,13 @@ local lazy_defaults = {
 	ui = {
 		border = "rounded",
 	},
+	pkg = {
+		sources = {
+			"lazy",
+			-- "rockspec",
+			"packspec",
+		},
+	},
 }
 
 lazy.setup({
