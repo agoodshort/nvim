@@ -1,12 +1,15 @@
 return {
 	"mfussenegger/nvim-lint",
 	-- ft = { "javascript", "javascriptreact", "typescript", "typescriptreact", "markdown", "lua" },
-	ft = { "markdown", "yaml", "json" },
+	-- ft = { "markdown", "yaml", "json", "lua" },
 	config = function()
 		local filetypes = {
 			markdown = { "markdownlint", "alex", "proselint", "write_good" },
+			ghaction = { "actionlint" },
+			cfn = { "cfn_lint" },
 			yaml = { "yamllint" },
 			json = { "jsonlint" },
+			lua = { "luacheck" },
 		}
 
 		-- local eslint_langs = { "javascript", "javascriptreact", "typescript", "typescriptreact" }
@@ -15,6 +18,11 @@ return {
 		-- end
 
 		require("lint").linters_by_ft = filetypes
+
+		require("lint").linters.yamllint.args = {
+			"-c",
+			"relaxed",
+		}
 
 		-- Lint on save
 		vim.api.nvim_create_autocmd({ "BufWritePost" }, {

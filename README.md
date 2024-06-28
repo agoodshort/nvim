@@ -38,7 +38,6 @@ The below applies when replacing using `:%s`.
 
 ## To Do
 
-- [ ] Review the use of `./luarc.json` file
 - [ ] Review how to use `K` when on neovim man page
 - [ ] Neovim `initial_mode = "normal"` does not work for extensions git_diffs
 - [ ] uncomment git config in lazy.nvim

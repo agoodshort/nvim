@@ -26,7 +26,10 @@ return {
 
 			-- Linters
 			"markdownlint", -- and formatter
+			"cfn-lint",
 			"alex",
+			"actionlint",
+			"luacheck",
 			"proselint",
 			"write-good",
 			"eslint_d",

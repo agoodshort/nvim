@@ -45,3 +45,12 @@ vim.cmd([[autocmd TermOpen * setlocal nospell]])
 vim.cmd([[autocmd BufNewFile,BufReadPost .env.* set ft=sh]])
 vim.cmd([[autocmd BufNewFile,BufReadPost Brewfile* set ft=sh]])
 vim.cmd([[autocmd BufNewFile,BufReadPost *.conf set ft=dosini]])
+
+vim.filetype.add({
+	pattern = {
+		[".*%.github/workflows/.*%.yml"] = "yaml.ghaction",
+		[".*%.github/workflows/.*%.yaml"] = "yaml.ghaction",
+		[".*%.cf.yaml"] = "yaml.cfn",
+		[".*%.cf.yml"] = "yaml.cfn",
+	},
+})
