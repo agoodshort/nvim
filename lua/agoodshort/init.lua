@@ -37,6 +37,13 @@ local lazy_defaults = {
 	ui = {
 		border = "rounded",
 	},
+	pkg = {
+		sources = {
+			"lazy",
+			-- "rockspec", image.nvim would not install otherwise
+			"packspec",
+		},
+	},
 }
 
 lazy.setup({
