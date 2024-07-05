@@ -1,6 +1,6 @@
 return {
 	"WhoIsSethDaniel/mason-tool-installer.nvim",
-	dependencies = { "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim" },
+	dependencies = { "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim", "jay-babu/mason-nvim-dap.nvim" },
 	opts = {
 		auto_update = true,
 		run_on_start = true,
@@ -36,6 +36,9 @@ return {
 			"yamllint",
 			"jsonlint",
 			"shellcheck", -- used by bash-language-server, no config required in nvim-lint
+
+			-- DAP
+			"js-debug-adapter",
 		},
 	},
 }
