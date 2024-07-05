@@ -313,6 +313,7 @@ return {
 
 		-- Toggleterm
 		wk.register({
+			["S"] = { "<Cmd>lua _SERPL_TOGGLE()<CR>", "Serpl" },
 			["\\"] = { -- map to "\"
 				name = "ToggleTerm",
 				["\\"] = { "<Cmd>ToggleTermToggleAll<CR>", "Toggle All Terminals" },
