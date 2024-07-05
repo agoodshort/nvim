@@ -24,6 +24,7 @@ return {
 			vim.cmd([[doautocmd LspAttach]]) -- hacky way to trigger heirline update
 		end, { desc = "Enable/Disable inlay hint on current buffer" })
 
+		-- see https://github.com/rcarriga/nvim-dap-ui/issues/367
 		-- require("neodev").setup({
 		-- 	library = { plugins = { "nvim-dap-ui" }, types = true },
 		-- })

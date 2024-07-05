@@ -63,6 +63,7 @@ return {
 			"sagarename",
 			"sagafinder",
 			"sagaoutline",
+			"dapui_stacks",
 		},
 	},
 }
