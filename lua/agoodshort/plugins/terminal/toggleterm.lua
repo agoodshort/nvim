@@ -41,6 +41,7 @@ return {
 		local gitui = Terminal:new({ cmd = "gitui", close_on_exit = true, hidden = true, direction = "float" })
 		local lazydocker =
 			Terminal:new({ cmd = "lazydocker", close_on_exit = true, hidden = true, direction = "float" })
+		local serpl = Terminal:new({ cmd = "serpl", close_on_exit = true, hidden = true, direction = "float" })
 
 		function _GITUI_TOGGLE()
 			gitui.dir = vim.fn.expand("%:p:h")
@@ -50,6 +51,11 @@ return {
 		function _LAZYDOCKER_TOGGLE()
 			lazydocker.dir = vim.fn.getcwd()
 			lazydocker:toggle()
+		end
+
+		function _SERPL_TOGGLE()
+			serpl.dir = vim.fn.getcwd()
+			serpl:toggle()
 		end
 	end,
 }
