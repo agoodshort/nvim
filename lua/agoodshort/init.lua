@@ -40,7 +40,7 @@ local lazy_defaults = {
 	pkg = {
 		sources = {
 			"lazy",
-			-- "rockspec",
+			-- "rockspec", image.nvim would not install otherwise
 			"packspec",
 		},
 	},
