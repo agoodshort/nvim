@@ -464,8 +464,14 @@ return {
 				name = "Debugger",
 				t = { "<Cmd>lua require('dapui').toggle()<CR>", "Dap-ui toggle" },
 				r = { "<Cmd>lua require('dapui').open({reset = true})<CR>", "Dap-ui reset" },
-				b = { "<Cmd>DapToggleBreakpoint<CR>", "Toggle dap breakpoint" },
-				v = { "<Cmd>DapContinue<CR>", "Dap continue" },
+				e = { "<Cmd>lua require('dapui').eval()<CR>", "Dap-ui eval" },
+				b = { "<Cmd>lua require('dap').toggle_breakpoint()<CR>", "Toggle Dap breakpoint" },
+				C = { "<Cmd>lua require('dap').run_to_cursor()<CR>", "Run Dap to cursor" },
+				c = { "<Cmd>lua require('dap').continue()<CR>", "Dap Continue" },
+				l = { "<Cmd>lua require('dap').run_last()<CR>", "Dap Run Last" },
+				x = { "<Cmd>lua require('dap').terminate()<CR>", "Dap Terminate" },
+				o = { "<Cmd>lua require'dap'.step_over()<CR>", "Dap Step-Over" },
+				i = { "<Cmd>lua require'dap'.step_into()<CR>", "Dap Step-Into" },
 			},
 		}, leader_opts)
 
