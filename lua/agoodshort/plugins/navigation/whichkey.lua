@@ -363,7 +363,21 @@ return {
 				name = "LSP",
 				c = { "<Cmd>Lspsaga code_action<CR>", "Lspsaga Code Action" },
 				f = { "<Cmd>Lspsaga finder<CR>", "Lspsaga Definition Finder" },
-				v = { "<Plug>(toggle-lsp-diag-vtext)", "Toggle LSP Virtual Text" },
+				v = {
+					function()
+						local config = vim.diagnostic.config()
+						if config.virtual_text == true then
+							vim.diagnostic.config({
+								virtual_text = false,
+							})
+						else
+							vim.diagnostic.config({
+								virtual_text = true,
+							})
+						end
+					end,
+					"Toggle LSP Virtual Text",
+				},
 				o = { "<Cmd>Lspsaga outline<CR>", "Lspsaga Outline" },
 				r = { "<Cmd>Lspsaga rename<CR>", "Lspsaga Rename" },
 				h = { "<Cmd>InlayHintToggle<CR>", "Toggle LSP Inlay Hint" },

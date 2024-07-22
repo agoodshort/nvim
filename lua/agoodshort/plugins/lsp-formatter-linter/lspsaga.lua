@@ -5,12 +5,6 @@ return {
 			"nvim-tree/nvim-web-devicons",
 			"nvim-treesitter/nvim-treesitter",
 			"neovim/nvim-lspconfig",
-			{
-				"WhoIsSethDaniel/toggle-lsp-diagnostics.nvim",
-				config = function()
-					require("toggle_lsp_diagnostics").init(vim.diagnostic.config())
-				end,
-			},
 		},
 		config = function()
 			require("lspsaga").setup({
