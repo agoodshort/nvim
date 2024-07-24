@@ -24,7 +24,6 @@ return {
 			vim.g.mkdp_filetypes = { "markdown" }
 		end,
 	},
-
 	{
 		"AckslD/nvim-FeMaco.lua", -- Edit code blocks in Markdown in a separate window
 		ft = "markdown",
@@ -32,13 +31,11 @@ return {
 		opts = {},
 	},
 	{
-		"lukas-reineke/headlines.nvim",
-		dependencies = "nvim-treesitter/nvim-treesitter",
-		ft = { "markdown", "orgmode", "neorg" },
-		opts = {
-			markdown = {
-				fat_headline_lower_string = "▔",
-			},
+		"OXY2DEV/markview.nvim",
+		ft = "markdown",
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-tree/nvim-web-devicons",
 		},
 	},
 }
