@@ -1,15 +1,5 @@
 return {
 	{
-		"kkoomen/vim-doge",
-		build = ":call doge#install()",
-		cmd = "DogeGenerate",
-		config = function()
-			vim.g.doge_enable_mapping = 0
-			vim.g.doge_mapping_comment_jump_forward = "<C-j>"
-			vim.g.doge_mapping_comment_jump_backward = "<C-k>"
-		end,
-	},
-	{
 		"windwp/nvim-autopairs", -- autoclose parens, brackets, quotes, etc...
 		event = "InsertEnter",
 		opts = {},

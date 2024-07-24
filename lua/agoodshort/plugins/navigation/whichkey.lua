@@ -332,9 +332,9 @@ return {
 			},
 		}, leader_opts_visual)
 
-		-- Vim-doge
+		-- neogen
 		wk.register({
-			D = { "<Cmd>DogeGenerate<CR>", "Generate Documentation" },
+			D = { "<Cmd>Neogen<CR>", "Generate Documentation" },
 		}, leader_opts)
 
 		-- Incline
