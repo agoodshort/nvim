@@ -2,7 +2,7 @@ return {
 	{
 		"windwp/nvim-autopairs", -- autoclose parens, brackets, quotes, etc...
 		event = "InsertEnter",
-		opts = {},
+		config = true,
 	},
 	{
 		"David-Kunz/cmp-npm",
