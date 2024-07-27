@@ -9,6 +9,8 @@ return {
 			"json-lsp",
 			"lua-language-server",
 			"typescript-language-server",
+			"angular-language-server",
+			"cucumber-language-server",
 			"yaml-language-server",
 			"marksman",
 			"bash-language-server",
