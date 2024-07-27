@@ -23,7 +23,7 @@ return {
 				bash = { "beautysh" },
 				zsh = { "beautysh" },
 				toml = { "taplo" },
-				markdown = { "markdownlint", "markdown-toc", "injected" },
+				markdown = { "markdownlint", "markdown-toc", "prettier", "injected" },
 				xml = { "xmlformat" },
 				rust = { "rustfmt" }, -- Installed manually through brew
 				["_"] = { "trim_whitespace", "trim_newlines", "squeeze_blanks" }, -- Run on filetypes that don't have a formatter, pseudo formatters from conform.nvim
