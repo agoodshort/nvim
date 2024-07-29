@@ -3,7 +3,7 @@ return {
 	version = "*",
 	event = "VeryLazy",
 	config = function()
-		vim.opt.mousescroll = "ver:60,hor:6"
+		vim.opt.mousescroll = "ver:30,hor:6"
 		require("mini.animate").setup({
 			-- Cursor path
 			cursor = {
