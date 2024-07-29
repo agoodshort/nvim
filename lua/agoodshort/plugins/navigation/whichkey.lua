@@ -218,6 +218,16 @@ return {
 			},
 		}, leader_opts)
 
+		-- Colour ccc
+		wk.register({
+			c = {
+				name = "Colour",
+				p = { "<Cmd>CccPick<CR>", "Pick Colour" },
+				t = { "<Cmd>CccHighlighterToggle<CR>", "Toggle Colour Highlighter" },
+				c = { "<Cmd>CccConvert<CR>", "Convert Colour" },
+			},
+		}, leader2_opts)
+
 		-- Noice
 		wk.register({
 			n = {
