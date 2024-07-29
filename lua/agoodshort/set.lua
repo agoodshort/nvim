@@ -17,7 +17,7 @@ vim.opt.incsearch = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
--- display things the way I like
+-- Display things the way I like
 vim.opt.smartindent = true
 vim.opt.wrap = true
 vim.opt.scrolloff = 8
@@ -52,5 +52,6 @@ vim.filetype.add({
 		[".*%.github/workflows/.*%.yaml"] = "yaml.ghaction",
 		[".*%.cf.yaml"] = "yaml.cfn",
 		[".*%.cf.yml"] = "yaml.cfn",
+		[".*%.component%.html"] = "htmlangular", -- will be included in neovim 0.11.x - https://github.com/dlvandenberg/tree-sitter-angular
 	},
 })

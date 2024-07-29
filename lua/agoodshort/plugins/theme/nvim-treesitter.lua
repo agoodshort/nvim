@@ -3,7 +3,7 @@ return {
 	build = ":TSUpdate",
 	event = "BufReadPost",
 	dependencies = {
-		{ "windwp/nvim-ts-autotag", config = true },
+		{ "windwp/nvim-ts-autotag", opts = { enable_close_on_slash = true } },
 		"nvim-treesitter/nvim-treesitter-context",
 	},
 	config = function()
@@ -14,6 +14,7 @@ return {
 				"json",
 				"javascript",
 				"typescript",
+				"angular",
 				"tsx",
 				"yaml",
 				"html",
