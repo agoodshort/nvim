@@ -15,7 +15,6 @@ return {
 			"marksman",
 			"bash-language-server",
 			"rust-analyzer",
-			"eslint-lsp",
 
 			-- Formatters
 			"stylua",
@@ -37,6 +36,7 @@ return {
 			"write-good",
 			"yamllint",
 			"jsonlint",
+			"eslint_d",
 			"shellcheck", -- used by bash-language-server, no config required in nvim-lint
 
 			-- DAP

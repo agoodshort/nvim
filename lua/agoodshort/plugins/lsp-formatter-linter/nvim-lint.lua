@@ -12,10 +12,10 @@ return {
 			lua = { "luacheck" },
 		}
 
-		-- local eslint_langs = { "javascript", "javascriptreact", "typescript", "typescriptreact" }
-		-- for _, lang in ipairs(eslint_langs) do
-		-- 	filetypes[lang] = { "eslint_d" }
-		-- end
+		local eslint_langs = { "javascript", "javascriptreact", "typescript", "typescriptreact" }
+		for _, lang in ipairs(eslint_langs) do
+			filetypes[lang] = { "eslint_d" }
+		end
 
 		require("lint").linters_by_ft = filetypes
 
