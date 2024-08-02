@@ -214,7 +214,7 @@ return {
 				p = { "<Cmd>MarkdownPreview<CR>", "Preview Markdown" },
 				c = { "<Cmd>FeMaco<CR>", "Fenced Code-block" },
 				m = { "<Cmd>MarkmapOpen<CR>", "Open Markmap" },
-				v = { "<CmdMarkview toggle<CR>", "Toggle Markview" },
+				v = { "<Cmd>Markview toggle<CR>", "Toggle Markview" },
 			},
 		}, leader_opts)
 
