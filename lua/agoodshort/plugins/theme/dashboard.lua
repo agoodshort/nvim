@@ -42,6 +42,7 @@ return {
 					action = function()
 						vim.cmd("TabRename " .. vim.fn.fnamemodify(vim.fn.getcwd(), ":~"))
 						vim.cmd("Neotree position=current")
+						vim.cmd("Telescope zoxide list")
 					end,
 					key = "f",
 				},

@@ -100,6 +100,23 @@ return {
 						-- Optional theme (the extension doesn't set a default theme)
 						theme = "ivy",
 					},
+					zoxide = {
+						prompt_title = "[ Zoxide List ]",
+
+						-- Zoxide list command with score
+						list_command = "zoxide query -ls",
+						mappings = {
+							default = {
+								action = function(selection)
+									vim.cmd.edit(selection.path)
+									vim.cmd("Neotree position=current")
+								end,
+								after_action = function(selection)
+									print("Directory changed to " .. selection.path)
+								end,
+							},
+						},
+					},
 				},
 			})
 			require("telescope").load_extension("fzf")
