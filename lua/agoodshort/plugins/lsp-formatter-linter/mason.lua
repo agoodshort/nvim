@@ -19,6 +19,7 @@ return {
 			},
 		})
 
+		-- Auto update schemastore at startup
 		require("lazy").update({ plugins = { "schemastore.nvim" }, show = false })
 
 		vim.api.nvim_create_user_command("InlayHintToggle", function()
