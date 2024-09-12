@@ -64,6 +64,7 @@ return {
 			"sagafinder",
 			"sagaoutline",
 			"dapui_stacks",
+			"dapui_scopes",
 		},
 	},
 }
