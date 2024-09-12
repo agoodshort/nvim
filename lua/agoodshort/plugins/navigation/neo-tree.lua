@@ -160,6 +160,23 @@ return {
 						["?"] = "show_help",
 						["["] = "prev_source",
 						["]"] = "next_source",
+						["O"] = {
+							command = function(state)
+								local node = state.tree:get_node()
+								local filepath = node.path
+								local osType = os.getenv("OS")
+
+								local command
+
+								if osType == "Darwin" then
+									command = "open " .. filepath
+								else
+									command = "xdg-open " .. filepath
+								end
+								os.execute(command)
+							end,
+							desc = "open_with_system_defaults",
+						},
 					},
 				},
 				nesting_rules = {},
