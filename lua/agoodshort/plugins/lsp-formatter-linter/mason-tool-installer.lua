@@ -15,6 +15,7 @@ return {
 			"marksman",
 			"bash-language-server",
 			"rust-analyzer",
+			"hyprls",
 
 			-- Formatters
 			"stylua",
