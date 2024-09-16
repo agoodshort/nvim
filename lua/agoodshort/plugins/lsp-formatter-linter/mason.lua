@@ -130,8 +130,8 @@ return {
 			end,
 
 			-- TSServer
-			["tsserver"] = function()
-				lspconfig.tsserver.setup({
+			["ts_ls"] = function()
+				lspconfig.ts_ls.setup({
 					capabilities = lsp_capabilities, -- Needs to be added manually for each LSP
 					settings = {
 						typescript = {
