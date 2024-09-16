@@ -52,6 +52,7 @@ vim.filetype.add({
 		[".*%.github/workflows/.*%.yaml"] = "yaml.ghaction",
 		[".*%.cf.yaml"] = "yaml.cfn",
 		[".*%.cf.yml"] = "yaml.cfn",
+		["home%.page%.html"] = "htmlangular", -- will be included in neovim 0.11.x - https://github.com/dlvandenberg/tree-sitter-angular
 		[".*%.component%.html"] = "htmlangular", -- will be included in neovim 0.11.x - https://github.com/dlvandenberg/tree-sitter-angular
 	},
 })
