@@ -489,12 +489,13 @@ return {
 		wk.register({
 			d = {
 				name = "Debugger",
-				t = { "<Cmd>lua require('dapui').toggle()<CR>", "Dap-ui toggle" },
-				r = { "<Cmd>lua require('dapui').open({reset = true})<CR>", "Dap-ui reset" },
+				t = { "<Cmd>lua require('dapui').toggle()<CR>", "Dap-ui Toggle" },
+				R = { "<Cmd>lua require('dapui').open({reset = true})<CR>", "Dap-ui Reset" },
 				e = { "<Cmd>lua require('dapui').eval()<CR>", "Dap-ui eval" },
-				b = { "<Cmd>lua require('dap').toggle_breakpoint()<CR>", "Toggle Dap breakpoint" },
-				C = { "<Cmd>lua require('dap').run_to_cursor()<CR>", "Run Dap to cursor" },
+				b = { "<Cmd>lua require('dap').toggle_breakpoint()<CR>", "Toggle Dap Breakpoint" },
+				C = { "<Cmd>lua require('dap').run_to_cursor()<CR>", "Run Dap to Cursor" },
 				c = { "<Cmd>lua require('dap').continue()<CR>", "Dap Continue" },
+				r = { "<Cmd>lua require('dap').restart()<CR>", "Dap Restart" },
 				l = { "<Cmd>lua require('dap').run_last()<CR>", "Dap Run Last" },
 				x = { "<Cmd>lua require('dap').terminate()<CR>", "Dap Terminate" },
 				o = { "<Cmd>lua require'dap'.step_over()<CR>", "Dap Step-Over" },

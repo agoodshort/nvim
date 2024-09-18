@@ -1,3 +1,6 @@
+-- Documentation
+-- https://www.youtube.com/watch?v=Ul_WPhS2bis
+-- https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation#javascript
 return {
 	{
 		"rcarriga/nvim-dap-ui",
@@ -12,7 +15,7 @@ return {
 	{
 		"mfussenegger/nvim-dap",
 		config = function()
-			require("dap").adapters["pwa-node"] = {
+			require("dap").adapters["node"] = {
 				type = "server",
 				host = "127.0.0.1",
 				port = "${port}",
@@ -26,21 +29,59 @@ return {
 				},
 			}
 
-			for _, language in ipairs({ "typescript", "javascript" }) do
+			require("dap").adapters["chrome"] = {
+				type = "executable",
+				command = "node",
+				args = {
+					require("mason-registry").get_package("chrome-debug-adapter"):get_install_path()
+						.. "/out/src/chromeDebug.js",
+				},
+			}
+
+			-- see https://github.com/microsoft/vscode-js-debug/blob/main/OPTIONS.md
+			for _, language in ipairs({ "typescript", "javascript", "typescriptreact", "javascriptreact" }) do
 				require("dap").configurations[language] = {
 					{
-						type = "pwa-node",
-						request = "launch",
 						name = "Launch file",
+						type = "node",
+						request = "launch",
 						program = "${file}",
 						cwd = "${workspaceFolder}",
 					},
 					{
-						type = "pwa-node",
+						name = "Launch file for Revanista Development",
+						type = "node",
+						request = "launch",
+						program = "${file}",
+						cwd = "${workspaceFolder}",
+						env = { AWS_PROFILE = "development" },
+					},
+					{
+						name = "Launch file for Revanista QA",
+						type = "node",
+						request = "launch",
+						program = "${file}",
+						cwd = "${workspaceFolder}",
+						env = { AWS_PROFILE = "qa" },
+					},
+					{
+						name = "Attach to process",
+						type = "node",
 						request = "attach",
-						name = "Attach",
 						processId = require("dap.utils").pick_process,
 						cwd = "${workspaceFolder}",
+					},
+					{
+						-- requires to run `flatpak run com.google.Chrome --remote-debugging-port=9222`
+						name = "Attach to Chrome Browser",
+						type = "chrome",
+						request = "attach",
+						program = "${file}",
+						cwd = vim.fn.getcwd(),
+						sourceMaps = true,
+						protocol = "inspector",
+						port = 9222,
+						webRoot = "${workspaceFolder}",
 					},
 				}
 			end
