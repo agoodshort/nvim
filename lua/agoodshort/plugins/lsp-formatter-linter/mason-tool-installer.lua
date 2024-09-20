@@ -42,7 +42,6 @@ return {
 
 			-- DAP
 			"js-debug-adapter",
-			"chrome-debug-adapter",
 		},
 	},
 }

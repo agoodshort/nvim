@@ -102,7 +102,7 @@ return {
 		"mfussenegger/nvim-dap",
 		lazy = true,
 		config = function()
-			require("dap").adapters["pwa-node"] = {
+			local jsDebugAdapter = {
 				type = "server",
 				host = "localhost",
 				port = "${port}",
@@ -115,15 +115,8 @@ return {
 					},
 				},
 			}
-
-			require("dap").adapters["chrome"] = {
-				type = "executable",
-				command = "node",
-				args = {
-					require("mason-registry").get_package("chrome-debug-adapter"):get_install_path()
-						.. "/out/src/chromeDebug.js",
-				},
-			}
+			require("dap").adapters["pwa-node"] = jsDebugAdapter
+			require("dap").adapters["pwa-chrome"] = jsDebugAdapter
 
 			-- see https://github.com/microsoft/vscode-js-debug/blob/main/OPTIONS.md
 			for _, language in ipairs({ "typescript", "javascript", "typescriptreact", "javascriptreact" }) do
@@ -160,9 +153,18 @@ return {
 						cwd = "${workspaceFolder}",
 					},
 					{
+						name = "Run in Chrome Browser",
+						type = "pwa-chrome",
+						request = "launch",
+						url = "http://localhost:3000",
+						cwd = vim.fn.getcwd(),
+						webRoot = "${workspaceFolder}",
+						runtimeExecutable = "/var/lib/flatpak/exports/bin/com.google.Chrome",
+					},
+					{
 						-- requires to run `flatpak run com.google.Chrome --remote-debugging-port=9222`
 						name = "Attach to Chrome Browser",
-						type = "chrome",
+						type = "pwa-chrome",
 						request = "attach",
 						program = "${file}",
 						cwd = vim.fn.getcwd(),
