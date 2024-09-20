@@ -242,8 +242,7 @@ return {
 
 		-- Telescope
 		wk.register({
-			B = { "<Cmd>Telescope scope buffers initial_mode=normal<CR>", "All Buffers" },
-			bb = { "<Cmd>Telescope buffers initial_mode=normal<CR>", "Tabbed Buffers" },
+			bb = { "<Cmd>Telescope scope buffers initial_mode=normal<CR>", "All Buffers" },
 			n = {
 				name = "Node Packages",
 				n = { "<Cmd>Telescope node_modules list<CR>", "List Node Modules" },
