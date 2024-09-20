@@ -65,6 +65,7 @@ return {
 			"sagaoutline",
 			"dapui_stacks",
 			"dapui_scopes",
+			"dapui_watches",
 		},
 	},
 }
