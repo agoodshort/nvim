@@ -15,9 +15,9 @@ return {
 	{
 		"mfussenegger/nvim-dap",
 		config = function()
-			require("dap").adapters["node"] = {
+			require("dap").adapters["pwa-node"] = {
 				type = "server",
-				host = "127.0.0.1",
+				host = "localhost",
 				port = "${port}",
 				executable = {
 					command = "node",
@@ -43,14 +43,14 @@ return {
 				require("dap").configurations[language] = {
 					{
 						name = "Launch file",
-						type = "node",
+						type = "pwa-node",
 						request = "launch",
 						program = "${file}",
 						cwd = "${workspaceFolder}",
 					},
 					{
 						name = "Launch file for Revanista Development",
-						type = "node",
+						type = "pwa-node",
 						request = "launch",
 						program = "${file}",
 						cwd = "${workspaceFolder}",
@@ -58,15 +58,16 @@ return {
 					},
 					{
 						name = "Launch file for Revanista QA",
-						type = "node",
+						type = "pwa-node",
 						request = "launch",
 						program = "${file}",
 						cwd = "${workspaceFolder}",
 						env = { AWS_PROFILE = "qa" },
 					},
 					{
+						-- can be used with `node --inspect-wait filename.js`
 						name = "Attach to process",
-						type = "node",
+						type = "pwa-node",
 						request = "attach",
 						processId = require("dap.utils").pick_process,
 						cwd = "${workspaceFolder}",
