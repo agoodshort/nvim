@@ -492,9 +492,16 @@ return {
 				R = { "<Cmd>lua require('dapui').open({reset = true})<CR>", "Dap-ui Reset" },
 				e = { "<Cmd>lua require('dapui').eval(nil,{enter = true})<CR>", "Dap-ui Eval" },
 				a = { "<Cmd>lua require('dapui').elements.watches.add()<CR>", "Dap-ui Add to Watches" },
-				w = {
-					"<Cmd>lua require('dapui').float_element('watches', {enter = true, height = 50, width = 100})<CR>",
-					"Dap-ui Watches",
+				f = {
+					name = "float",
+					r = {
+						"<Cmd>lua require('dapui').float_element('repl', {enter = true, height = 50, width = 100})<CR>",
+						"Dap-ui Watches",
+					},
+					w = {
+						"<Cmd>lua require('dapui').float_element('watches', {enter = true, height = 50, width = 100})<CR>",
+						"Dap-ui Watches",
+					},
 				},
 				b = { "<Cmd>lua require('dap').toggle_breakpoint()<CR>", "Toggle Dap Breakpoint" },
 				C = { "<Cmd>lua require('dap').run_to_cursor()<CR>", "Run Dap to Cursor" },
