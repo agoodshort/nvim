@@ -243,7 +243,7 @@ return {
 
 		local Git = {
 			condition = function()
-				local path = vim.loop.cwd() .. "/.git"
+				local path = vim.fn.getcwd() .. "/.git"
 				local ok = vim.loop.fs_stat(path)
 				if not ok then
 					return false
