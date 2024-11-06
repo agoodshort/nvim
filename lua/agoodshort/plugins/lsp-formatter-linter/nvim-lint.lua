@@ -1,7 +1,15 @@
 return {
 	"mfussenegger/nvim-lint",
-	-- ft = { "javascript", "javascriptreact", "typescript", "typescriptreact", "markdown", "lua" },
-	-- ft = { "markdown", "yaml", "json", "lua" },
+	event = "VeryLazy",
+	keys = {
+		{
+			"<leaader>+",
+			function()
+				require("lint").try_lint()
+			end,
+			desc = "Run linter",
+		},
+	},
 	config = function()
 		local filetypes = {
 			markdown = { "markdownlint", "alex", "proselint", "write_good" },

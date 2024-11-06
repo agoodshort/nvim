@@ -40,6 +40,7 @@ return {
 	{
 		"m4xshen/hardtime.nvim",
 		event = "VeryLazy",
+		keys = { "<leader><leader>H", "<cmd>Hardtime toggle<cr>", desc = "Toggle Hardtime" },
 		opts = {
 			max_time = 1000,
 			max_count = 5,

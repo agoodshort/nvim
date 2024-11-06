@@ -1,5 +1,13 @@
 return {
 	"danymat/neogen",
 	config = true,
-	-- version = "*",
+	keys = {
+		{
+			"<leader>D",
+			function()
+				require("neogen").generate({})
+			end,
+			desc = "Generate Documentation",
+		},
+	},
 }

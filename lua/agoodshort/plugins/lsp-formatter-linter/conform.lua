@@ -2,6 +2,15 @@ return {
 	"stevearc/conform.nvim",
 	event = { "BufWritePre" },
 	cmd = { "ConformInfo" },
+	keys = {
+		{
+			"<leader>=",
+			function()
+				require("conform").format({ async = true, lsp_format = "fallback" })
+			end,
+			desc = "Format using conform.nvim",
+		},
+	},
 	config = function()
 		local prettier_langs = {
 			"javascript",

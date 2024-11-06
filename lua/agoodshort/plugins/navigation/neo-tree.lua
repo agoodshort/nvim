@@ -335,6 +335,29 @@ return {
 				-- 	},
 				-- },
 			})
+
+			require("which-key").add({
+				{
+					"<leader>b",
+					"<cmd>Neotree toggle buffers<cr>",
+					desc = "Neotree Buffers",
+				},
+				{
+					"<leader>e",
+					"<cmd>Neotree toggle filesystem<cr>",
+					desc = "Neotree Filesystem",
+				},
+				{
+					"<leader>ge",
+					"<cmd>Neotree toggle git_status<cr>",
+					desc = "Neotree Git",
+				},
+				{
+					"<leader>s",
+					"<cmd>Neotree toggle document_symbols<cr>",
+					desc = "Neotree Symbols",
+				},
+			})
 		end,
 	},
 }

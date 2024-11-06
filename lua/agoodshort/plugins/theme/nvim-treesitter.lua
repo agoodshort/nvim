@@ -2,6 +2,15 @@ return {
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
 	event = "BufReadPost",
+	keys = {
+		{
+			"<leader>t",
+			function()
+				require("treesitter-context").toggle()
+			end,
+			desc = "Toggle Treesitter Context",
+		},
+	},
 	dependencies = {
 		{ "windwp/nvim-ts-autotag", opts = { enable_close_on_slash = true } },
 		"nvim-treesitter/nvim-treesitter-context",

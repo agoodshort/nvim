@@ -43,19 +43,78 @@ return {
 			Terminal:new({ cmd = "lazydocker", close_on_exit = true, hidden = true, direction = "float" })
 		local serpl = Terminal:new({ cmd = "serpl", close_on_exit = true, hidden = true, direction = "float" })
 
-		function _GITUI_TOGGLE()
-			gitui.dir = vim.fn.expand("%:p:h")
-			gitui:toggle()
-		end
+		-- Custom functions
+		local wk = require("which-key")
+		wk.add({
+			{
+				"<leader>S",
+				function()
+					serpl.dir = vim.fn.getcwd()
+					serpl:toggle()
+				end,
+				desc = "serpl",
+			},
+			{
+				"<leader>\\d",
+				function()
+					lazydocker.dir = vim.fn.getcwd()
+					lazydocker:toggle()
+				end,
+				desc = "Lazydocker",
+			},
+			{
+				"<leader>gu",
+				function()
+					gitui.dir = vim.fn.expand("%:p:h")
+					gitui:toggle()
+				end,
+				desc = "GitUI",
+			},
+		})
 
-		function _LAZYDOCKER_TOGGLE()
-			lazydocker.dir = vim.fn.getcwd()
-			lazydocker:toggle()
-		end
-
-		function _SERPL_TOGGLE()
-			serpl.dir = vim.fn.getcwd()
-			serpl:toggle()
-		end
+		wk.add({
+			{
+				"<leader>\\",
+				group = "ToggleTerm",
+			},
+			{
+				"<leader>\\\\",
+				"<cmd>ToggleTermToggleAll<cr>",
+				desc = "Toggle All Terminals",
+			},
+			{
+				"<leader>\\1",
+				"<cmd>1ToggleTerm<cr>",
+				desc = "Toggle Terminal 1",
+			},
+			{
+				"<leader>\\2",
+				"<cmd>2ToggleTerm<cr>",
+				desc = "Toggle Terminal 2",
+			},
+			{
+				"<leader>\\3",
+				"<cmd>3ToggleTerm<cr>",
+				desc = "Toggle Terminal 3",
+			},
+		})
+		wk.add({
+			mode = "v",
+			{
+				"<leader>\\1",
+				"<cmd>ToggleTermSendVisualSelection<cr>",
+				desc = "Send to Terminal 1",
+			},
+			{
+				"<leader>\\2",
+				"<cmd>ToggleTermSendVisualSelection 2<cr>",
+				desc = "Send to Terminal 2",
+			},
+			{
+				"<leader>\\3",
+				"<cmd>ToggleTermSendVisualSelection 3<cr>",
+				desc = "Send to Terminal 3",
+			},
+		})
 	end,
 }

@@ -4,7 +4,6 @@ return {
 		"MunifTanjim/nui.nvim",
 		"rcarriga/nvim-notify",
 	},
-    event = "VeryLazy",
 	config = function()
 		require("noice").setup({
 			commands = {
@@ -67,6 +66,39 @@ return {
 				long_message_to_split = true, -- long messages will be sent to a split
 				inc_rename = false, -- enables an input dialog for inc-rename.nvim
 				lsp_doc_border = false, -- add a border to hover docs and signature help
+			},
+		})
+
+		require("which-key").add({
+			{ "<leader><leader>n", group = "Noice" },
+			{ "<leader><leader>nt", "<cmd>Telescope noice<cr>", desc = "Telescope History" },
+			{
+				"<leader><leader>nh",
+				function()
+					require("noice").cmd("history")
+				end,
+				desc = "History",
+			},
+			{
+				"<leader><leader>ne",
+				function()
+					require("noice").cmd("errors")
+				end,
+				desc = "Errors",
+			},
+			{
+				"<leader><leader>nl",
+				function()
+					require("noice").cmd("last")
+				end,
+				desc = "Last",
+			},
+			{
+				"<leader><leader>nd",
+				function()
+					require("noice").cmd("dismiss")
+				end,
+				desc = "Dismiss",
 			},
 		})
 	end,

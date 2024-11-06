@@ -1,6 +1,13 @@
 return {
 	"b0o/incline.nvim",
 	event = "VeryLazy",
+	keys = { {
+		"<leader>i",
+		function()
+			require("incline").toggle()
+		end,
+		desc = "Toggle Incline",
+	} },
 	dependencies = {
 		"lewis6991/gitsigns.nvim",
 	},
