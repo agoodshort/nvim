@@ -23,9 +23,6 @@ local lazy_defaults = {
 	defaults = {
 		lazy = false,
 	},
-	-- git = {
-	-- 	url_format = "git@agoodshort.github.com/%s.git",
-	-- },
 	checker = {
 		-- automatically check for plugin updates
 		enabled = true,
