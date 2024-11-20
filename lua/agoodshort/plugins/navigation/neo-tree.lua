@@ -136,6 +136,14 @@ return {
 						noremap = true,
 						nowait = true,
 					},
+					fuzzy_finder_mappings = { -- use a custom function for defining keymaps in popup input window
+						["<down>"] = "move_cursor_down",
+						["<up>"] = "move_cursor_up",
+						["<C-j>"] = "move_cursor_down",
+						["<C-k>"] = "move_cursor_up",
+						["<C-c>"] = "close",
+						["<esc>"] = "close",
+					},
 					mappings = {
 						["<space>"] = {
 							"toggle_node",
