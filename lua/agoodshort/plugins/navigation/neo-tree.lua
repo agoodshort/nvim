@@ -15,7 +15,19 @@ return {
 						.. vim.fn.expand("$HOME")
 						.. "/.luarocks/share/lua/5.1/?/init.lua"
 					package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?.lua"
-					require("image").setup()
+					require("image").setup({
+						backend = "kitty",
+						kitty_method = "normal",
+						integrations = {
+							markdown = {
+								enabled = true,
+								clear_in_insert_mode = true,
+								download_remote_images = true,
+								only_render_image_at_cursor = false,
+								filetypes = { "markdown", "vimwiki" }, -- markdown extensions (ie. quarto) can go here
+							},
+						},
+					})
 				end,
 			},
 		},
